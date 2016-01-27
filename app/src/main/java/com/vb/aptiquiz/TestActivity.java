@@ -12,16 +12,17 @@ import android.widget.Button;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
-public class TestActivity extends AppCompatActivity implements OnClickListener{
+public class TestActivity extends AppCompatActivity implements OnClickListener {
 
-    BootstrapButton b1,b2;
+    BootstrapButton b1, b2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        b1=(BootstrapButton)findViewById(R.id.button1);
+        b1 = (BootstrapButton) findViewById(R.id.button1);
         b1.setOnClickListener(this);
-        b2=(BootstrapButton)findViewById(R.id.button2);
+        b2 = (BootstrapButton) findViewById(R.id.button2);
         b2.setOnClickListener(this);
     }
 
@@ -29,16 +30,13 @@ public class TestActivity extends AppCompatActivity implements OnClickListener{
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
-        if(v==b1)
-        {
+        if (v == b1) {
             this.finish();
-            Intent in =new Intent(this,AptitudeTestMenu.class);
+            Intent in = new Intent(this, AptitudeTestMenu.class);
             startActivity(in);
-        }
-        else
-        {
+        } else {
             this.finish();
-            Intent in =new Intent(this,VerbalTestMenu.class);
+            Intent in = new Intent(this, VerbalTestMenu.class);
             startActivity(in);
         }
     }

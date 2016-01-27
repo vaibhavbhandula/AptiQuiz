@@ -20,19 +20,20 @@ import android.view.MenuItem;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class Home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
-    BootstrapButton b1,b2;
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+    BootstrapButton b1, b2;
     NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        b1=(BootstrapButton)findViewById(R.id.button1);
+        b1 = (BootstrapButton) findViewById(R.id.button1);
         b1.setOnClickListener(this);
 
-        b2=(BootstrapButton)findViewById(R.id.button2);
+        b2 = (BootstrapButton) findViewById(R.id.button2);
         b2.setOnClickListener(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -59,11 +60,6 @@ public class Home extends AppCompatActivity
     }
 
 
-
-
-
-
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -73,12 +69,12 @@ public class Home extends AppCompatActivity
 
         if (id == R.id.apti) {
             // Handle the camera action
-            startActivity(new Intent(Home.this,AptitudeTestMenu.class));
+            startActivity(new Intent(Home.this, AptitudeTestMenu.class));
         } else if (id == R.id.verb) {
-            startActivity(new Intent(Home.this,VerbalTestMenu.class));
+            startActivity(new Intent(Home.this, VerbalTestMenu.class));
 
         } else if (id == R.id.about) {
-            startActivity(new Intent(Home.this,About.class));
+            startActivity(new Intent(Home.this, About.class));
 
         } else if (id == R.id.nav_share) {
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
@@ -99,14 +95,11 @@ public class Home extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        if(v==b1)
-        {
-            Intent in =new Intent(this,AptitudeTestMenu.class);
+        if (v == b1) {
+            Intent in = new Intent(this, AptitudeTestMenu.class);
             startActivity(in);
-        }
-        else if(v==b2)
-        {
-            Intent in =new Intent(this,VerbalTestMenu.class);
+        } else if (v == b2) {
+            Intent in = new Intent(this, VerbalTestMenu.class);
             startActivity(in);
         }
     }

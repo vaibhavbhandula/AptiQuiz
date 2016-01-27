@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
     android:background="@color/bg"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin">
 
     <LinearLayout
@@ -21,12 +21,11 @@
             app:bootstrapBrand="primary"
             app:bootstrapSize="lg"
             app:buttonMode="regular"
-            app:showOutline="false"
-            app:roundedCorners="true"/>
+            app:roundedCorners="true"
+            app:showOutline="false" />
 
 
     </LinearLayout>
-
 
 
     <LinearLayout
@@ -44,7 +43,7 @@
             app:bootstrapBrand="primary"
             app:bootstrapSize="lg"
             app:buttonMode="regular"
-            app:showOutline="false"
-            app:roundedCorners="true"/>
+            app:roundedCorners="true"
+            app:showOutline="false" />
     </LinearLayout>
 </LinearLayout>

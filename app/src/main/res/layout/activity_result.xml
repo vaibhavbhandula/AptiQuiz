@@ -1,199 +1,191 @@
 <ScrollView
-    android:background="@color/bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@color/bg">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin" >
+        android:padding="@dimen/activity_horizontal_margin">
 
         <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="@dimen/elevation"
-        app:cardBackgroundColor="@android:color/white"
-        >
-
-        <TextView
-            android:id="@+id/textView1"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/test_summ" />
+            app:cardBackgroundColor="@android:color/white"
+            app:cardElevation="@dimen/elevation">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/test_summ"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="@dimen/elevation"
-            app:cardBackgroundColor="@android:color/white"
             android:layout_marginTop="@dimen/pad_8"
-            >
+            app:cardBackgroundColor="@android:color/white"
+            app:cardElevation="@dimen/elevation">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:maxLines="4"
-            android:padding="@dimen/pad_2"
-            android:layout_marginLeft="@dimen/pad_4"
-            android:scrollbars="vertical"
-            android:text="" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/pad_4"
+                android:maxLines="4"
+                android:padding="@dimen/pad_2"
+                android:scrollbars="vertical"
+                android:text="" />
 
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="@dimen/elevation"
-            app:cardBackgroundColor="@android:color/white"
             android:layout_marginTop="@dimen/pad_8"
-            >
+            app:cardBackgroundColor="@android:color/white"
+            app:cardElevation="@dimen/elevation">
 
-        <TextView
-            android:id="@+id/score"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/pad_2"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/pad_2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </android.support.v7.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/pad_8"
-            android:paddingBottom="@dimen/pad_8">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/pad_8"
+            android:paddingTop="@dimen/pad_8">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
 
-            <Button
-                android:id="@+id/button1"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:layout_gravity="center"
-                android:background="@android:color/white"/>
+                <Button
+                    android:id="@+id/button1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    android:text="1" />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
-            <Button
-                android:id="@+id/button2"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2"
-                android:layout_gravity="center"
-                android:background="@android:color/white"/>
+                <Button
+                    android:id="@+id/button2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    android:text="2" />
                 />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
-            <Button
-                android:id="@+id/button3"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="3"
-                android:background="@android:color/white"/>
+                <Button
+                    android:id="@+id/button3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    android:text="3" />
 
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
-            <Button
-                android:id="@+id/button4"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@android:color/white"
-                android:text="4" />
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
+
+                <Button
+                    android:id="@+id/button4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    android:text="4" />
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
-            <Button
-                android:id="@+id/button5"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
-                android:text="5"
-                android:layout_gravity="center"
-                android:background="@android:color/white"
-                android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/button5"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    android:text="5" />
 
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/pad_4"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/pad_8">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
 
                 <Button
@@ -201,41 +193,39 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="6"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="6" />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button7"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="7"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="7" />
                 />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button8"
@@ -243,20 +233,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="8"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="8" />
 
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
+
                 <Button
                     android:id="@+id/button9"
                     style="?android:attr/buttonStyleSmall"
@@ -270,40 +260,38 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button10"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
-                    android:text="10"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/white"
-                    android:layout_height="wrap_content" />
+                    android:text="10" />
 
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/pad_4"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/pad_8">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
 
                 <Button
@@ -311,41 +299,39 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="11"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="11" />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button12"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="12" />
                 />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button13"
@@ -353,20 +339,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="13"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="13" />
 
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
+
                 <Button
                     android:id="@+id/button14"
                     style="?android:attr/buttonStyleSmall"
@@ -380,40 +366,38 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button15"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
-                    android:text="15"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/white"
-                    android:layout_height="wrap_content" />
+                    android:text="15" />
 
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/pad_4"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/pad_8">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
 
                 <Button
@@ -421,41 +405,39 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="16"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="16" />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button17"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="17"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="17" />
                 />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button18"
@@ -463,20 +445,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="18"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="18" />
 
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
+
                 <Button
                     android:id="@+id/button19"
                     style="?android:attr/buttonStyleSmall"
@@ -490,40 +472,38 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button20"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
-                    android:text="20"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/white"
-                    android:layout_height="wrap_content" />
+                    android:text="20" />
 
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/pad_4"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/pad_8">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
 
                 <Button
@@ -531,41 +511,39 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="21"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="21" />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button22"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="22"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="22" />
                 />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button23"
@@ -573,20 +551,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="23"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="23" />
 
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
+
                 <Button
                     android:id="@+id/button24"
                     style="?android:attr/buttonStyleSmall"
@@ -600,21 +578,20 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button25"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
-                    android:text="25"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/white"
-                    android:layout_height="wrap_content" />
+                    android:text="25" />
 
             </android.support.v7.widget.CardView>
 
@@ -622,22 +599,20 @@
         </LinearLayout>
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/pad_4"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/pad_8">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
 
                 <Button
@@ -645,41 +620,39 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="26"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="26" />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button27"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="27"
                     android:layout_gravity="center"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="27" />
                 />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button28"
@@ -687,20 +660,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="28"
-                    android:background="@android:color/white"/>
+                    android:background="@android:color/white"
+                    android:text="28" />
 
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
+
                 <Button
                     android:id="@+id/button29"
                     style="?android:attr/buttonStyleSmall"
@@ -714,21 +687,20 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
-                app:cardBackgroundColor="@android:color/white"
                 android:layout_marginLeft="@dimen/pad_8"
-                >
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="@dimen/elevation">
 
                 <Button
                     android:id="@+id/button30"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
-                    android:text="30"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/white"
-                    android:layout_height="wrap_content" />
+                    android:text="30" />
 
             </android.support.v7.widget.CardView>
 
@@ -739,69 +711,67 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/activity_horizontal_margin">
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/pad_4"
-                app:cardElevation="@dimen/elevation"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
-            <TextView
-                android:id="@+id/textView3"
-                android:padding="@dimen/pad_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/correct"
-                android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="@dimen/text_size" />
+                app:cardElevation="@dimen/elevation">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/pad_2"
+                    android:text="@string/correct"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/text_size" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_marginRight="@dimen/pad_4"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/pad_4"
-                android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
+                android:layout_marginRight="@dimen/pad_4"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:padding="@dimen/pad_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/incorrect"
-                android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="@dimen/text_size" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/pad_2"
+                    android:text="@string/incorrect"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/text_size" />
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/pad_4"
-                android:layout_height="wrap_content"
-                app:cardElevation="@dimen/elevation"
+                android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                >
+                app:cardElevation="@dimen/elevation">
 
-            <TextView
-                android:id="@+id/textView5"
-                android:padding="@dimen/pad_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/not_attm"
-                android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="@dimen/text_size" />
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/pad_2"
+                    android:text="@string/not_attm"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/text_size" />
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
