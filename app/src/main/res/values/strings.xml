@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">AptiQuiz</string>
+    <string name="about_info">This Android application consists of aptitude test and verbal ability test. The user is at an advantage here as he can practice a lot through these tests and that too in a time based manner as the tests are to be completed in a given time. At the first launch of the application, all the questions (550) will be stored in SQLite Database and every test gets random questions from the database.</string>
+    <string name="home_text">Aptitude and Verbal Ability Quiz</string>
+    <string name="home_button_text">Proceed to Test Menu</string>
+    <string name="apti">Aptitude Test</string>
+    <string name="verbal">Verbal Test</string>
+    <string name="prev">Prev</string>
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+    <string name="summary">Summary</string>
+    <string name="apti_menu">Aptitude Test Menu</string>
+    <string name="verbal_menu">Verbal Test Menu</string>
+    <string name="inst">Test Instructions :</string>
+    <string name="back">Back</string>
+    <string name="home">Home</string>
+    <string name="start">Start Test</string>
+    <string name="about">About</string>
+    <string name="test_summ">Here\&apos;s your Test Summary</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
+    <string name="not_attm">Not Attempted</string>
+    <string name="attm">Attempted</string>
+    <string name="not_view">Not Viewed</string>
+    <string name="nav">Click on the Question No. to navigate</string>
+    <string name="confirm">Confirm Submit</string>
+    <string name="close">Close</string>
+    <string name="title_activity_home">Home</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="aptitude">Aptitude</string>
+    <string name="verb">Verbal</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate us on Play Store</string>
+    <string name="ques">Question :</string>
+    <string name="yourAns">Your Answer :</string>
+    <string name="corAns">Correct Answer :</string>
+    <string name="result">Result</string>
+    <string name="question">Question</string>
+</resources>

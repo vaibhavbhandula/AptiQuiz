@@ -1,0 +1,99 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg"
+    android:padding="@dimen/activity_horizontal_margin"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ques"
+        android:layout_marginBottom="@dimen/pad_2"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="@dimen/elevation">
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/pad_8"
+        android:scrollbars="vertical"
+        android:minLines="5"
+        android:maxLines="10"
+        android:text=""
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="@android:color/black"/>
+    </android.support.v7.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yourAns"
+        android:layout_marginTop="@dimen/pad_8"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="@dimen/elevation">
+        <TextView
+            android:id="@+id/urans"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/pad_8"
+            android:scrollbars="vertical"
+            android:minLines="1"
+            android:maxLines="50"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/black"/>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/corAnsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/corAns"
+        android:layout_marginTop="@dimen/pad_8"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="@dimen/elevation">
+        <TextView
+            android:id="@+id/corans"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/pad_8"
+            android:scrollbars="vertical"
+            android:minLines="1"
+            android:maxLines="50"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/black"/>
+    </android.support.v7.widget.CardView>
+
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:layout_gravity="center"
+        android:text="@string/close"
+        android:textAllCaps="true"
+        android:layout_marginTop="@dimen/pad_12"
+        app:bootstrapBrand="success"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:showOutline="false"
+        app:roundedCorners="true"        />
+
+
+
+</LinearLayout>
