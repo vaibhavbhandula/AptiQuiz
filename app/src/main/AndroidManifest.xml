@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vb.aptiquiz" >
+    package="com.vb.aptiquiz">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
-        </activity>
-        <activity android:name=".Aptitude"
-            android:label="@string/apti">
-        </activity>
-        <activity android:name=".Result1"
-            android:label="@string/summary">
-        </activity>
-        <activity android:name=".Verbal_Ability"
-            android:label="@string/verbal">
-        </activity>
-        <activity android:name=".About"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".Aptitude"
+            android:label="@string/apti"></activity>
+        <activity
+            android:name=".Result1"
+            android:label="@string/summary"></activity>
+        <activity
+            android:name=".Verbal_Ability"
+            android:label="@string/verbal"></activity>
+        <activity
+            android:name=".About"
             android:label="@string/about"
-            android:parentActivityName=".Home">
-        </activity>
-        <activity android:name=".AptitudeTestMenu"
+            android:parentActivityName=".Home"></activity>
+        <activity
+            android:name=".AptitudeTestMenu"
             android:label="@string/apti_menu"
-            android:parentActivityName=".Home">
-        </activity>
-        <activity android:name=".Result"
-            android:label="@string/result">
-        </activity>
-        <activity android:name=".Result2"
-            android:label="@string/question">
-        </activity>
-        <activity android:name=".TestActivity" >
-        </activity>
-        <activity android:name=".VerbalTestMenu"
+            android:parentActivityName=".Home"></activity>
+        <activity
+            android:name=".Result"
+            android:label="@string/result"></activity>
+        <activity
+            android:name=".Result2"
+            android:label="@string/question"
+            android:parentActivityName=".Result"></activity>
+        <activity android:name=".TestActivity"></activity>
+        <activity
+            android:name=".VerbalTestMenu"
             android:label="@string/verbal_menu"
-            android:parentActivityName=".Home">
-        </activity>
+            android:parentActivityName=".Home"></activity>
         <activity
             android:name=".Home"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -117,6 +117,14 @@ public class Result2 extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+        }
+        return true;
+    }
+
+    @Override
     public void onBackPressed() {
         this.finish();
     }
