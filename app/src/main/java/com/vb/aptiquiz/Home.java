@@ -21,8 +21,8 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
-    BootstrapButton b1, b2;
     NavigationView navigationView;
+    com.getbase.floatingactionbutton.FloatingActionButton apti, verb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +30,17 @@ public class Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        b1 = (BootstrapButton) findViewById(R.id.button1);
-        b1.setOnClickListener(this);
 
-        b2 = (BootstrapButton) findViewById(R.id.button2);
-        b2.setOnClickListener(this);
+        apti = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.floatapti);
+        apti.setOnClickListener(this);
+        verb = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.floatverbal);
+        verb.setOnClickListener(this);
+
+        apti.setIcon(R.drawable.ic_assessment_white_24dp);
+        apti.setSize(com.getbase.floatingactionbutton.FloatingActionButton.SIZE_MINI);
+
+        verb.setIcon(R.drawable.ic_assignment_white_24dp);
+        verb.setSize(com.getbase.floatingactionbutton.FloatingActionButton.SIZE_MINI);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -95,10 +101,10 @@ public class Home extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        if (v == b1) {
+        if (v == apti) {
             Intent in = new Intent(this, AptitudeTestMenu.class);
             startActivity(in);
-        } else if (v == b2) {
+        } else if (v == verb) {
             Intent in = new Intent(this, VerbalTestMenu.class);
             startActivity(in);
         }
