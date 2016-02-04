@@ -25,6 +25,6 @@
 
     <style name="menu_labels_style">
         <item name="android:background">@drawable/label_fab</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@android:color/background_light</item>
     </style>
 </resources>
