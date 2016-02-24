@@ -25,6 +25,7 @@
     <include layout="@layout/content_home" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fabmenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -50,5 +51,6 @@
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
+    <include layout="@layout/transparent"/>
 
 </android.support.design.widget.CoordinatorLayout>

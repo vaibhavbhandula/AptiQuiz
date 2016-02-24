@@ -24,7 +24,8 @@
     </style>
 
     <style name="menu_labels_style">
+        <item name="android:textSize">12.0sp</item>
         <item name="android:background">@drawable/label_fab</item>
-        <item name="android:textColor">@android:color/background_light</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 </resources>

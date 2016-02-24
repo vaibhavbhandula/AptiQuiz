@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,13 +17,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     NavigationView navigationView;
     com.getbase.floatingactionbutton.FloatingActionButton apti, verb;
+    LinearLayout view;
+    FloatingActionsMenu fabMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,32 @@ public class Home extends AppCompatActivity
 
         verb.setIcon(R.drawable.ic_assignment_white_24dp);
         verb.setSize(com.getbase.floatingactionbutton.FloatingActionButton.SIZE_MINI);
+
+        view=(LinearLayout)findViewById(R.id.transp);
+        fabMenu=(FloatingActionsMenu)findViewById(R.id.fabmenu);
+        fabMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
+            @Override
+            public void onMenuExpanded() {
+                view.setClickable(true);
+                view.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onMenuCollapsed() {
+                view.setClickable(false);
+                view.setVisibility(View.GONE);
+            }
+        });
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                view.setClickable(false);
+                view.setVisibility(View.GONE);
+                fabMenu.toggle();
+                return false;
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
