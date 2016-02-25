@@ -105,7 +105,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     }
 
     public void onBackPressed() {
-        // TODO Auto-generated method stub
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
         ad.setIcon(R.drawable.ic_warning_black_24dp);
         ad.setTitle("Confirm");
@@ -115,7 +114,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
                 SQLiteDatabase db = openOrCreateDatabase("project", 0, null);
                 db.execSQL("drop table if exists aptitest");
                 db.close();
@@ -127,7 +125,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
             }
         });
         ad.show();
@@ -222,11 +219,9 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                 @Override
                 public void run() {
-                    // TODO Auto-generated method stub
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -618,7 +613,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
 
         SQLiteDatabase db;
         db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
@@ -711,7 +705,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
                         }
                     });
                     ad.show();
@@ -760,7 +753,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
     @Override
     public void onCheckedChanged(RadioGroup rg, int rb) {
-        // TODO Auto-generated method stub
         if (rb == rb1.getId() && rb1.isChecked()) {
             a[y - 1] = 1;
             u[y - 1] = 1;

@@ -168,7 +168,6 @@ public class Result extends AppCompatActivity implements OnClickListener {
     }
 
     public void onBackPressed() {
-        // TODO Auto-generated method stub
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
         ad.setIcon(R.drawable.ic_warning_black_24dp);
         ad.setTitle("Confirm");
@@ -178,7 +177,6 @@ public class Result extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
                 SQLiteDatabase db = openOrCreateDatabase("project", 0, null);
                 if (ch == 'a')
                     db.execSQL("drop table if exists aptitest");
@@ -193,7 +191,6 @@ public class Result extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
             }
         });
         ad.show();
@@ -201,7 +198,6 @@ public class Result extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
 
         for (int i = 0; i < 30; i++) {
             if (v == b[i]) {

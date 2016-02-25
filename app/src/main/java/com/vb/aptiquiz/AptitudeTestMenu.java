@@ -27,25 +27,18 @@ public class AptitudeTestMenu extends AppCompatActivity implements View.OnClickL
         b1.setOnClickListener(this);
         tv.setMovementMethod(new ScrollingMovementMethod());
         t = "Test Instructions : \n\n";
-        t += "1.  Pass percentage is 75.\n\n"+
-                "2.  There are no negative marks.\n\n"+
+        t += "1.  Pass percentage is 75.\n\n" +
+                "2.  There are no negative marks.\n\n" +
                 "3.  Number of Questions = 30.\n\n" +
-                "4.  Time allotted = 40 minutes.\n\n"+
-                "5.  Scroll to view the full question if required.\n\n"+
-                "6.  Click on Summary in the Test section to view Test Summary and jump to a question directly.\n\n"+
+                "4.  Time allotted = 40 minutes.\n\n" +
+                "5.  Scroll to view the full question if required.\n\n" +
+                "6.  Click on Summary in the Test section to view Test Summary and jump to a question directly.\n\n" +
                 "All the Best!";
         tv.setText(t);
 
         SQLiteDatabase db;
         db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-//        db.execSQL("create table if not exists sufficiency(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists logic(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists relation(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists series(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists misc(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists puzzle(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists paragraph(Pid integer primary key,Paragraph text)");
 
         Cursor c1, c2, c3, c4, c5, c6, c7;
 
@@ -3446,7 +3439,6 @@ public class AptitudeTestMenu extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
         if (v == b1) {
             Intent in = new Intent(this, Aptitude.class);
             startActivity(in);

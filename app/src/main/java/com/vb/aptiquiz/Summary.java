@@ -178,7 +178,6 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void onBackPressed() {
-        // TODO Auto-generated method stub
         Intent in;
         Bundle b = new Bundle();
 
@@ -244,11 +243,9 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
                 @Override
                 public void run() {
-                    // TODO Auto-generated method stub
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -272,7 +269,6 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
 
         if (v == b1) {
             AlertDialog.Builder ad = new AlertDialog.Builder(this);
@@ -284,7 +280,6 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
                     Intent in = new Intent(Summary.this, Result.class);
                     Bundle b = new Bundle();
 
@@ -305,7 +300,6 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
                 }
             });
             ad.show();

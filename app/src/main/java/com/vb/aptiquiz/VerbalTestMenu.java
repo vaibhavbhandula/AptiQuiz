@@ -29,24 +29,18 @@ public class VerbalTestMenu extends AppCompatActivity implements OnClickListener
         b1.setOnClickListener(this);
         tv.setMovementMethod(new ScrollingMovementMethod());
         t = "Test Instructions :\n\n";
-        t += "1.  Pass percentage is 60.\n\n"+
-                "2.  There are no negative marks.\n\n"+
+        t += "1.  Pass percentage is 60.\n\n" +
+                "2.  There are no negative marks.\n\n" +
                 "3.  Number of Questions = 30.\n\n" +
-                "4.  Time allotted = 25 minutes.\n\n"+
-                "5.  Scroll to view the full question if required.\n\n"+
-                "6.  Click on Summary in the Test section to view Test Summary and jump to a question directly.\n\n"+
+                "4.  Time allotted = 25 minutes.\n\n" +
+                "5.  Scroll to view the full question if required.\n\n" +
+                "6.  Click on Summary in the Test section to view Test Summary and jump to a question directly.\n\n" +
                 "All the Best!!!";
         tv.setText(t);
 
 
         SQLiteDatabase db;
         db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
-//
-//        db.execSQL("create table if not exists corsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists impsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists theme(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists comsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-//        db.execSQL("create table if not exists selword(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
 
         Cursor c1, c2, c3, c4, c5;
 
@@ -2834,7 +2828,6 @@ public class VerbalTestMenu extends AppCompatActivity implements OnClickListener
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
         if (v == b1) {
             Intent in = new Intent(this, Verbal_Ability.class);
             startActivity(in);

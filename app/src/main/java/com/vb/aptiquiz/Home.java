@@ -91,7 +91,7 @@ public class Home extends AppCompatActivity
     }
 
 
-    void setUpDB(){
+    void setUpDB() {
         SQLiteDatabase db;
         db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
@@ -111,6 +111,7 @@ public class Home extends AppCompatActivity
         db.close();
 
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

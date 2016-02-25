@@ -128,7 +128,6 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
         ad.setIcon(R.drawable.ic_warning_black_24dp);
         ad.setTitle("Confirm");
@@ -138,7 +137,6 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
                 SQLiteDatabase db = openOrCreateDatabase("project", 0, null);
                 db.execSQL("drop table if exists aptitest");
                 db.close();
@@ -150,7 +148,6 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
             }
         });
         ad.show();
