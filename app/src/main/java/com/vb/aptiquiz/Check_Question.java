@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
-public class Result2 extends AppCompatActivity implements View.OnClickListener {
+public class Check_Question extends AppCompatActivity implements View.OnClickListener {
 
     BootstrapButton b;
     TextView tv;
@@ -28,7 +28,7 @@ public class Result2 extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result2);
+        setContentView(R.layout.activity_question);
         b = (BootstrapButton) findViewById(R.id.button1);
         b.setOnClickListener(this);
 

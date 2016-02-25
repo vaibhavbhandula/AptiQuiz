@@ -13,7 +13,7 @@
             android:name=".Aptitude"
             android:label="@string/apti"/>
         <activity
-            android:name=".Result1"
+            android:name=".Summary"
             android:label="@string/summary"/>
         <activity
             android:name=".Verbal_Ability"
@@ -30,7 +30,7 @@
             android:name=".Result"
             android:label="@string/result"/>
         <activity
-            android:name=".Result2"
+            android:name=".Check_Question"
             android:label="@string/question"
             android:parentActivityName=".Result"/>
         <activity android:name=".TestActivity"/>

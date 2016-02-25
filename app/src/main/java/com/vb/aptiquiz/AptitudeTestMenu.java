@@ -27,8 +27,13 @@ public class AptitudeTestMenu extends AppCompatActivity implements View.OnClickL
         b1.setOnClickListener(this);
         tv.setMovementMethod(new ScrollingMovementMethod());
         t = "Test Instructions : \n\n";
-        t += "1.  Pass percentage is 75.\n\n2.  There are no negative marks.\n\n3.  Number of Questions = 30." +
-                "\n\n4.  Time allotted = 40 minutes.\n\n5.  Scroll to view the full question if required.\n\n6.  Click on Summary in the Test section to view Test Summary and jump to a question directly.\n\n                               All the Best!";
+        t += "1.  Pass percentage is 75.\n\n"+
+                "2.  There are no negative marks.\n\n"+
+                "3.  Number of Questions = 30.\n\n" +
+                "4.  Time allotted = 40 minutes.\n\n"+
+                "5.  Scroll to view the full question if required.\n\n"+
+                "6.  Click on Summary in the Test section to view Test Summary and jump to a question directly.\n\n"+
+                "All the Best!";
         tv.setText(t);
 
         SQLiteDatabase db;

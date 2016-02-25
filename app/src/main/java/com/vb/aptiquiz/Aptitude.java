@@ -641,7 +641,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
             }
 
             if (i == 29) {
-                Intent in = new Intent(this, Result1.class);
+                Intent in = new Intent(this, Summary.class);
                 Bundle b = new Bundle();
 
                 b.putString("paragraph", s);
@@ -718,7 +718,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
                 }
             }
         } else {
-            Intent in = new Intent(this, Result1.class);
+            Intent in = new Intent(this, Summary.class);
             Bundle b = new Bundle();
 
             b.putString("paragraph", s);

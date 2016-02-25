@@ -539,7 +539,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
             }
 
             if (i == 29) {
-                Intent in = new Intent(this, Result1.class);
+                Intent in = new Intent(this, Summary.class);
                 Bundle b = new Bundle();
 
                 b.putIntArray("u", u);
@@ -603,7 +603,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
                 }
             }
         } else {
-            Intent in = new Intent(this, Result1.class);
+            Intent in = new Intent(this, Summary.class);
             Bundle b = new Bundle();
 
             b.putIntArray("u", u);

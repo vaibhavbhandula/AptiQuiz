@@ -205,7 +205,7 @@ public class Result extends AppCompatActivity implements OnClickListener {
 
         for (int i = 0; i < 30; i++) {
             if (v == b[i]) {
-                Intent in = new Intent(this, Result2.class);
+                Intent in = new Intent(this, Check_Question.class);
                 Bundle b = new Bundle();
 
                 b.putInt("no.", i + 1);

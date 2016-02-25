@@ -18,7 +18,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class Result1 extends AppCompatActivity implements View.OnClickListener {
+public class Summary extends AppCompatActivity implements View.OnClickListener {
     Button b[] = new Button[30];
     BootstrapButton b1;
     TextView tv1, tv2, tv3, tv4, tv5;
@@ -32,7 +32,7 @@ public class Result1 extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result1);
+        setContentView(R.layout.activity_summary);
         b1 = (BootstrapButton) findViewById(R.id.button31);
         b1.setOnClickListener(this);
 
@@ -239,7 +239,7 @@ public class Result1 extends AppCompatActivity implements View.OnClickListener {
 
         if (interval == 0) {
             timer.cancel();
-            ProgressDialog pd = ProgressDialog.show(Result1.this, "Submitting test", "Please Wait...");
+            ProgressDialog pd = ProgressDialog.show(Summary.this, "Submitting test", "Please Wait...");
             new Thread(new Runnable() {
 
                 @Override
@@ -253,7 +253,7 @@ public class Result1 extends AppCompatActivity implements View.OnClickListener {
                     }
                 }
             }).start();
-            Intent in = new Intent(Result1.this, Result.class);
+            Intent in = new Intent(Summary.this, Result.class);
             Bundle b = new Bundle();
 
             b.putIntArray("u", u);
@@ -285,7 +285,7 @@ public class Result1 extends AppCompatActivity implements View.OnClickListener {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // TODO Auto-generated method stub
-                    Intent in = new Intent(Result1.this, Result.class);
+                    Intent in = new Intent(Summary.this, Result.class);
                     Bundle b = new Bundle();
 
                     b.putIntArray("u", u);
