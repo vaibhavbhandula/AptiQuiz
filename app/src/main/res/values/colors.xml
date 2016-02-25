@@ -6,5 +6,5 @@
     <color name="bg">#f7f7f7</color>
     <color name="alternate">#FF9900</color>
     <color name="black_semi_transparent">#B2000000</color>
-
+    <color name="trans">#E6FFFFFF</color>
 </resources>
