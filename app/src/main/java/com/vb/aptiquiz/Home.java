@@ -90,6 +90,7 @@ public class Home extends AppCompatActivity
         }
     }
 
+
     void setUpDB(){
         SQLiteDatabase db;
         db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
@@ -106,6 +107,8 @@ public class Home extends AppCompatActivity
         db.execSQL("create table if not exists misc(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
         db.execSQL("create table if not exists puzzle(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
         db.execSQL("create table if not exists paragraph(Pid integer primary key,Paragraph text)");
+
+        db.close();
 
     }
     @SuppressWarnings("StatementWithEmptyBody")

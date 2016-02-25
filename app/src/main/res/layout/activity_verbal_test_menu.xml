@@ -41,7 +41,7 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:maxLines="50"
-            android:padding="@dimen/elevation"
+            android:padding="@dimen/pad_8"
             android:scrollbars="vertical"
             android:text=""
             android:textColor="@android:color/black"

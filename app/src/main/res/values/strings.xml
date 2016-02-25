@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AptiQuiz</string>
+    <string name="app_name">Aptitude and Verbal Quiz</string>
     <string name="about_info">This Android application consists of aptitude test and verbal ability test. The user is at an advantage here as he can practice a lot through these tests and that too in a time based manner as the tests are to be completed in a given time. At the first launch of the application, all the questions (550) will be stored in SQLite Database and every test gets random questions from the database.</string>
     <string name="home_text">Aptitude and Verbal Ability Quiz</string>
     <string name="home_button_text">Proceed to Test Menu</string>
