@@ -1,12 +1,5 @@
 package com.vb.aptiquiz;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
@@ -15,17 +8,20 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Verbal_Ability extends AppCompatActivity implements OnClickListener, OnCheckedChangeListener {
@@ -99,7 +95,8 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
 
     public void onBackPressed() {
         // TODO Auto-generated method stub
-        AlertDialog.Builder ad = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        ad.setIcon(R.drawable.ic_warning_black_24dp);
         ad.setTitle("Confirm");
         ad.setMessage("Are you sure you want to quit this app?");
         ad.setIcon(android.R.drawable.stat_notify_error);
@@ -592,6 +589,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
 
                 if (c1.isBeforeFirst()) {
                     AlertDialog.Builder ad = new AlertDialog.Builder(this);
+                    ad.setIcon(R.drawable.ic_warning_black_24dp);
                     ad.setTitle("Alert");
                     ad.setMessage("This is the first question ! Click Next to view more.");
                     ad.setNeutralButton("Ok", new DialogInterface.OnClickListener() {

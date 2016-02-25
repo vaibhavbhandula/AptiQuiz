@@ -1,6 +1,7 @@
 package com.vb.aptiquiz;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -76,7 +77,7 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
-
+        setUpDB();
     }
 
     @Override
@@ -89,7 +90,24 @@ public class Home extends AppCompatActivity
         }
     }
 
+    void setUpDB(){
+        SQLiteDatabase db;
+        db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
+        db.execSQL("create table if not exists sufficiency(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists logic(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists series(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists corsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists relation(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists impsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists theme(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists comsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists selword(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists misc(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists puzzle(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
+        db.execSQL("create table if not exists paragraph(Pid integer primary key,Paragraph text)");
+
+    }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

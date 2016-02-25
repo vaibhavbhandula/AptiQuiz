@@ -1,19 +1,6 @@
 package com.vb.aptiquiz;
 
-import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.View;
 import android.app.AlertDialog;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RadioGroup;
-
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -21,20 +8,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.view.Menu;
+import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Aptitude extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
@@ -120,7 +106,8 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
     public void onBackPressed() {
         // TODO Auto-generated method stub
-        AlertDialog.Builder ad = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        ad.setIcon(R.drawable.ic_warning_black_24dp);
         ad.setTitle("Confirm");
         ad.setMessage("Are you sure you want to quit this app?");
         ad.setIcon(android.R.drawable.stat_notify_error);
@@ -717,6 +704,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                 if (c1.isBeforeFirst()) {
                     AlertDialog.Builder ad = new AlertDialog.Builder(this);
+                    ad.setIcon(R.drawable.ic_warning_black_24dp);
                     ad.setTitle("Alert");
                     ad.setMessage("This is the first question ! Click Next to view more.");
                     ad.setNeutralButton("Ok", new DialogInterface.OnClickListener() {

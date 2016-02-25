@@ -1,24 +1,21 @@
 package com.vb.aptiquiz;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Result1 extends AppCompatActivity implements View.OnClickListener {
@@ -278,7 +275,8 @@ public class Result1 extends AppCompatActivity implements View.OnClickListener {
         // TODO Auto-generated method stub
 
         if (v == b1) {
-            AlertDialog.Builder ad = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
+            AlertDialog.Builder ad = new AlertDialog.Builder(this);
+            ad.setIcon(R.drawable.ic_warning_black_24dp);
             ad.setTitle("Confirm");
             ad.setMessage("Are you sure you want to submit the test?");
             ad.setIcon(android.R.drawable.stat_notify_error);

@@ -19,8 +19,7 @@
 
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">#000000</item>
     </style>
 
     <style name="menu_labels_style">
@@ -28,4 +27,5 @@
         <item name="android:background">@drawable/label_fab</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+
 </resources>

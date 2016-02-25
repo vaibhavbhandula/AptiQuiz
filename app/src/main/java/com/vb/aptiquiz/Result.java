@@ -1,16 +1,13 @@
 package com.vb.aptiquiz;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -172,7 +169,8 @@ public class Result extends AppCompatActivity implements OnClickListener {
 
     public void onBackPressed() {
         // TODO Auto-generated method stub
-        AlertDialog.Builder ad = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        ad.setIcon(R.drawable.ic_warning_black_24dp);
         ad.setTitle("Confirm");
         ad.setMessage("Are you sure you want to quit this app?");
         ad.setIcon(android.R.drawable.stat_notify_error);
