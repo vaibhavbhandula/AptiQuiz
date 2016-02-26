@@ -24,6 +24,14 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
     TextView urAns, corAns;
     String uAns, cAns;
     TextView corAnslabel;
+    final static String KEY_TABLE_NAME_VB = "verbaltest";
+    final static String KEY_NO = "no.";
+    final static String KEY_U = "u";
+    final static String KEY_PARA = "paragraph";
+    final static String KEY_TEST = "test";
+    final static String KEY_TABLE_NAME_APTI = "aptitest";
+    final static String KEY_DB = "project";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,26 +47,26 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
         Intent in = getIntent();
         Bundle b = in.getExtras();
-        ch = b.getChar("test");
+        ch = b.getChar(KEY_TEST);
         if (ch == 'a')
-            loadQuestion(b.getInt("no."), b, "aptitest");
+            loadQuestion(b.getInt(KEY_NO), b, KEY_TABLE_NAME_APTI);
 
         else
-            loadQuestion(b.getInt("no."), b, "verbaltest");
+            loadQuestion(b.getInt(KEY_NO), b, KEY_TABLE_NAME_VB);
     }
 
 
     public void loadQuestion(int n, Bundle b, String nm) {
 
         SQLiteDatabase db;
-        db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c = db.query(nm, null, null, null, null, null, null);
 
-        if (b.getIntArray("u") != null) {
-            if (b.getChar("test") == 'a')
-                s = b.getString("paragraph");
+        if (b.getIntArray(KEY_U) != null) {
+            if (b.getChar(KEY_TEST) == 'a')
+                s = b.getString(KEY_PARA);
 
-            u = b.getIntArray("u");
+            u = b.getIntArray(KEY_U);
         }
 
         if (c.moveToPosition(n - 1)) {
@@ -70,7 +78,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
             String s6 = c.getString(6);
             String s7 = c.getString(7);
 
-            if ((n == 26 || n == 27 || n == 28 || n == 29 || n == 30) && b.getChar("test") == 'a') {
+            if ((n == 26 || n == 27 || n == 28 || n == 29 || n == 30) && b.getChar(KEY_TEST) == 'a') {
                 t = "Paragraph :\n" + s + "\n\n" + "Question :  " + s1;
             } else {
                 t = "" + s1;
@@ -111,6 +119,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
         }
 
+        c.close();
     }
 
     @Override
@@ -130,15 +139,16 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
         ad.setIcon(R.drawable.ic_warning_black_24dp);
-        ad.setTitle("Confirm");
-        ad.setMessage("Are you sure you want to quit this app?");
+        ad.setTitle(getString(R.string.confirm_ad));
+        ad.setMessage(getString(R.string.alert_quit));
         ad.setIcon(android.R.drawable.stat_notify_error);
         ad.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 SQLiteDatabase db = openOrCreateDatabase("project", 0, null);
-                db.execSQL("drop table if exists aptitest");
+                db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTI);
+                db.execSQL("drop table if exists " + KEY_TABLE_NAME_VB);
                 db.close();
                 finishAffinity();
             }

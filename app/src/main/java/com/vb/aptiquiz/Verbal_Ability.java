@@ -41,30 +41,30 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     int min = 25;
     int z[] = new int[30], u[] = new int[30];
 
-    final static String KEY_LOAD="load";
-    final static String KEY_INTERVAL="interval";
-    final static String KEY_I="i";
-    final static String KEY_NO="no.";
-    final static String KEY_U="u";
-    final static String KEY_ATTEMPTED="attempted";
-    final static String KEY_CORRECT="correct";
-    final static String KEY_TEST="test";
-    final static String KEY_MIN="min";
-    final static String KEY_SEC="sec";
-    final static String KEY_ID="Id";
-    final static String KEY_QUESTION="Question";
-    final static String KEY_OPA="optiona";
-    final static String KEY_OPB="optionb";
-    final static String KEY_OPC="optionc";
-    final static String KEY_OPD="optiond";
-    final static String KEY_OPE="optione";
-    final static String KEY_TABLE_NAME ="verbaltest";
-    final static String KEY_DB="project";
-    final static String KEY_COMSEN="comsen";
-    final static String KEY_THEME="theme";
-    final static String KEY_CORSEN="corsen";
-    final static String KEY_IMPSEN="impsen";
-    final static String KEY_SELWORD="selword";
+    final static String KEY_LOAD = "load";
+    final static String KEY_INTERVAL = "interval";
+    final static String KEY_I = "i";
+    final static String KEY_NO = "no.";
+    final static String KEY_U = "u";
+    final static String KEY_ATTEMPTED = "attempted";
+    final static String KEY_CORRECT = "correct";
+    final static String KEY_TEST = "test";
+    final static String KEY_MIN = "min";
+    final static String KEY_SEC = "sec";
+    final static String KEY_ID = "Id";
+    final static String KEY_QUESTION = "Question";
+    final static String KEY_OPA = "optiona";
+    final static String KEY_OPB = "optionb";
+    final static String KEY_OPC = "optionc";
+    final static String KEY_OPD = "optiond";
+    final static String KEY_OPE = "optione";
+    final static String KEY_TABLE_NAME = "verbaltest";
+    final static String KEY_DB = "project";
+    final static String KEY_COMSEN = "comsen";
+    final static String KEY_THEME = "theme";
+    final static String KEY_CORSEN = "corsen";
+    final static String KEY_IMPSEN = "impsen";
+    final static String KEY_SELWORD = "selword";
 
 
     @Override
@@ -92,7 +92,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
         b3 = (BootstrapButton) findViewById(R.id.button3);
         b3.setOnClickListener(this);
 
-        scrollView=(ScrollView)findViewById(R.id.bottomHalf);
+        scrollView = (ScrollView) findViewById(R.id.bottomHalf);
         timing();
 
         if (getIntent().getExtras() != null) {
@@ -134,7 +134,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
-                db.execSQL("drop table if exists "+ KEY_TABLE_NAME);
+                db.execSQL("drop table if exists " + KEY_TABLE_NAME);
                 db.close();
                 finishAffinity();
             }
@@ -358,15 +358,15 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
         SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-        db.execSQL("create table if not exists "+ KEY_TABLE_NAME +"("
-                +KEY_ID +" integer primary key,"
-                +KEY_QUESTION+ " text,"
-                +KEY_OPA+" text,"
-                +KEY_OPB+" text,"
-                +KEY_OPC+" text,"
-                +KEY_OPD+" text,"
-                +KEY_OPE+" text,"
-                +KEY_CORRECT+" text)");
+        db.execSQL("create table if not exists " + KEY_TABLE_NAME + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
         Cursor cr = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
         if (cr.getCount() != 30) {

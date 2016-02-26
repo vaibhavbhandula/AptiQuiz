@@ -19,20 +19,20 @@ public class VerbalTestMenu extends AppCompatActivity implements OnClickListener
     TextView tv;
     String t;
 
-    final static String KEY_CORRECT="correct";
-    final static String KEY_ID="Id";
-    final static String KEY_QUESTION="Question";
-    final static String KEY_OPA="optiona";
-    final static String KEY_OPB="optionb";
-    final static String KEY_OPC="optionc";
-    final static String KEY_OPD="optiond";
-    final static String KEY_OPE="optione";
-    final static String KEY_DB="project";
-    final static String KEY_COMSEN="comsen";
-    final static String KEY_THEME="theme";
-    final static String KEY_CORSEN="corsen";
-    final static String KEY_IMPSEN="impsen";
-    final static String KEY_SELWORD="selword";
+    final static String KEY_CORRECT = "correct";
+    final static String KEY_ID = "Id";
+    final static String KEY_QUESTION = "Question";
+    final static String KEY_OPA = "optiona";
+    final static String KEY_OPB = "optionb";
+    final static String KEY_OPC = "optionc";
+    final static String KEY_OPD = "optiond";
+    final static String KEY_OPE = "optione";
+    final static String KEY_DB = "project";
+    final static String KEY_COMSEN = "comsen";
+    final static String KEY_THEME = "theme";
+    final static String KEY_CORSEN = "corsen";
+    final static String KEY_IMPSEN = "impsen";
+    final static String KEY_SELWORD = "selword";
 
 
     @Override

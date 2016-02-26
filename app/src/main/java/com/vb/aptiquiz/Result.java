@@ -21,6 +21,16 @@ public class Result extends AppCompatActivity implements OnClickListener {
     String s;
     char ch;
 
+    final static String KEY_TABLE_NAME_VB = "verbaltest";
+    final static String KEY_NO = "no.";
+    final static String KEY_U = "u";
+    final static String KEY_ATTEMPTED = "attempted";
+    final static String KEY_CORRECT = "correct";
+    final static String KEY_PARA = "paragraph";
+    final static String KEY_TEST = "test";
+    final static String KEY_TABLE_NAME_APTI = "aptitest";
+    final static String KEY_DB = "project";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,13 +133,13 @@ public class Result extends AppCompatActivity implements OnClickListener {
         Intent in = getIntent();
         Bundle b1 = in.getExtras();
 
-        c = b1.getIntArray("correct");
-        a = b1.getIntArray("attempted");
-        u = b1.getIntArray("u");
-        ch = b1.getChar("test");
+        c = b1.getIntArray(KEY_CORRECT);
+        a = b1.getIntArray(KEY_ATTEMPTED);
+        u = b1.getIntArray(KEY_U);
+        ch = b1.getChar(KEY_TEST);
 
         if (ch == 'a')
-            s = b1.getString("paragraph");
+            s = b1.getString(KEY_PARA);
 
         tv1.setTextColor(Color.BLACK);
         tv2.setTextColor(Color.BLACK);
@@ -170,18 +180,18 @@ public class Result extends AppCompatActivity implements OnClickListener {
     public void onBackPressed() {
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
         ad.setIcon(R.drawable.ic_warning_black_24dp);
-        ad.setTitle("Confirm");
-        ad.setMessage("Are you sure you want to quit this app?");
+        ad.setTitle(getString(R.string.confirm_ad));
+        ad.setMessage(getString(R.string.alert_quit));
         ad.setIcon(android.R.drawable.stat_notify_error);
         ad.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SQLiteDatabase db = openOrCreateDatabase("project", 0, null);
+                SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
                 if (ch == 'a')
-                    db.execSQL("drop table if exists aptitest");
+                    db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTI);
                 else
-                    db.execSQL("drop table if exists verbaltest");
+                    db.execSQL("drop table if exists " + KEY_TABLE_NAME_VB);
                 db.close();
                 finishAffinity();
             }
@@ -204,11 +214,11 @@ public class Result extends AppCompatActivity implements OnClickListener {
                 Intent in = new Intent(this, Check_Question.class);
                 Bundle b = new Bundle();
 
-                b.putInt("no.", i + 1);
-                b.putIntArray("u", u);
-                b.putChar("test", ch);
+                b.putInt(KEY_NO, i + 1);
+                b.putIntArray(KEY_U, u);
+                b.putChar(KEY_TEST, ch);
                 if (ch == 'a')
-                    b.putString("paragraph", s);
+                    b.putString(KEY_PARA, s);
                 in.putExtras(b);
                 startActivity(in);
             }

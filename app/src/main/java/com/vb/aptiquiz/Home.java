@@ -23,6 +23,30 @@ public class Home extends AppCompatActivity
     LinearLayout view;
     FloatingActionsMenu fabMenu;
 
+    final static String KEY_ID = "Id";
+    final static String KEY_CORRECT = "correct";
+    final static String KEY_QUESTION = "Question";
+    final static String KEY_OPA = "optiona";
+    final static String KEY_OPB = "optionb";
+    final static String KEY_OPC = "optionc";
+    final static String KEY_OPD = "optiond";
+    final static String KEY_OPE = "optione";
+    final static String KEY_DB = "project";
+    final static String KEY_MISC = "misc";
+    final static String KEY_RELATION = "relation";
+    final static String KEY_LOGIC = "logic";
+    final static String KEY_SUFFICIENCY = "sufficiency";
+    final static String KEY_SERIES = "series";
+    final static String KEY_PUZZLE = "puzzle";
+    final static String KEY_COMSEN = "comsen";
+    final static String KEY_THEME = "theme";
+    final static String KEY_CORSEN = "corsen";
+    final static String KEY_IMPSEN = "impsen";
+    final static String KEY_SELWORD = "selword";
+    final static String KEY_PARA = "paragraph";
+    final static String KEY_PID = "Pid";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,20 +117,121 @@ public class Home extends AppCompatActivity
 
     void setUpDB() {
         SQLiteDatabase db;
-        db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-        db.execSQL("create table if not exists sufficiency(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists logic(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists series(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists corsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists relation(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists impsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists theme(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists comsen(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists selword(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists misc(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists puzzle(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        db.execSQL("create table if not exists paragraph(Pid integer primary key,Paragraph text)");
+        db.execSQL("create table if not exists " + KEY_SUFFICIENCY + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_LOGIC + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_SERIES + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_CORSEN + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_RELATION + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_IMPSEN + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_THEME + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_COMSEN + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_SELWORD + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_MISC + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_PUZZLE + "("
+                + KEY_ID + " integer primary key,"
+                + KEY_QUESTION + " text,"
+                + KEY_OPA + " text,"
+                + KEY_OPB + " text,"
+                + KEY_OPC + " text,"
+                + KEY_OPD + " text,"
+                + KEY_OPE + " text,"
+                + KEY_CORRECT + " text)");
+
+        db.execSQL("create table if not exists " + KEY_PARA + "("
+                + KEY_PID + " integer primary key,"
+                + KEY_PARA + " text)");
 
         db.close();
 

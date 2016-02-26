@@ -28,6 +28,18 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
     char ch;
     static int interval;
     static Timer timer;
+    final static String KEY_LOAD = "load";
+    final static String KEY_INTERVAL = "interval";
+    final static String KEY_I = "i";
+    final static String KEY_NO = "no.";
+    final static String KEY_U = "u";
+    final static String KEY_ATTEMPTED = "attempted";
+    final static String KEY_CORRECT = "correct";
+    final static String KEY_PARA = "paragraph";
+    final static String KEY_TEST = "test";
+    final static String KEY_MIN = "min";
+    final static String KEY_SEC = "sec";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,17 +158,17 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
         Intent in = getIntent();
         Bundle b1 = in.getExtras();
 
-        u = b1.getIntArray("u");
-        a = b1.getIntArray("attempted");
-        c = b1.getIntArray("correct");
-        i = b1.getInt("i");
-        interval = b1.getInt("interval");
-        min = b1.getInt("min");
-        sec = b1.getInt("sec");
-        ch = b1.getChar("test");
+        u = b1.getIntArray(KEY_U);
+        a = b1.getIntArray(KEY_ATTEMPTED);
+        c = b1.getIntArray(KEY_CORRECT);
+        i = b1.getInt(KEY_I);
+        interval = b1.getInt(KEY_INTERVAL);
+        min = b1.getInt(KEY_MIN);
+        sec = b1.getInt(KEY_SEC);
+        ch = b1.getChar(KEY_TEST);
 
         if (ch == 'a') {
-            s = b1.getString("paragraph");
+            s = b1.getString(KEY_PARA);
         }
 
         for (int i = 0; i < 30; i++) {
@@ -183,19 +195,19 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
         if (ch == 'a') {
             in = new Intent(this, Aptitude.class);
-            b.putString("paragraph", s);
+            b.putString(KEY_PARA, s);
         } else
             in = new Intent(this, Verbal_Ability.class);
 
-        b.putChar("load", 'n');
-        b.putIntArray("u", u);
-        b.putInt("i", i + 1);
-        b.putInt("interval", interval);
-        b.putIntArray("attempted", a);
-        b.putIntArray("correct", c);
-        b.putInt("min", min);
-        b.putInt("sec", sec);
-        b.putChar("test", ch);
+        b.putChar(KEY_LOAD, 'n');
+        b.putIntArray(KEY_U, u);
+        b.putInt(KEY_I, i + 1);
+        b.putInt(KEY_INTERVAL, interval);
+        b.putIntArray(KEY_ATTEMPTED, a);
+        b.putIntArray(KEY_CORRECT, c);
+        b.putInt(KEY_MIN, min);
+        b.putInt(KEY_SEC, sec);
+        b.putChar(KEY_TEST, ch);
         in.putExtras(b);
         startActivity(in);
     }
@@ -238,7 +250,7 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
         if (interval == 0) {
             timer.cancel();
-            ProgressDialog pd = ProgressDialog.show(Summary.this, "Submitting test", "Please Wait...");
+            ProgressDialog pd = ProgressDialog.show(Summary.this, getString(R.string.submit_test), getString(R.string.wait));
             new Thread(new Runnable() {
 
                 @Override
@@ -253,12 +265,12 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
             Intent in = new Intent(Summary.this, Result.class);
             Bundle b = new Bundle();
 
-            b.putIntArray("u", u);
-            b.putIntArray("attempted", a);
-            b.putIntArray("correct", c);
-            b.putChar("test", ch);
+            b.putIntArray(KEY_U, u);
+            b.putIntArray(KEY_ATTEMPTED, a);
+            b.putIntArray(KEY_CORRECT, c);
+            b.putChar(KEY_TEST, ch);
             if (ch == 'a')
-                b.putString("paragraph", s);
+                b.putString(KEY_PARA, s);
 
             in.putExtras(b);
             startActivity(in);
@@ -273,8 +285,8 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
         if (v == b1) {
             AlertDialog.Builder ad = new AlertDialog.Builder(this);
             ad.setIcon(R.drawable.ic_warning_black_24dp);
-            ad.setTitle("Confirm");
-            ad.setMessage("Are you sure you want to submit the test?");
+            ad.setTitle(getString(R.string.confirm_ad));
+            ad.setMessage(getString(R.string.sub));
             ad.setIcon(android.R.drawable.stat_notify_error);
             ad.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 
@@ -283,14 +295,14 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
                     Intent in = new Intent(Summary.this, Result.class);
                     Bundle b = new Bundle();
 
-                    b.putIntArray("u", u);
-                    b.putIntArray("attempted", a);
-                    b.putIntArray("correct", c);
+                    b.putIntArray(KEY_U, u);
+                    b.putIntArray(KEY_ATTEMPTED, a);
+                    b.putIntArray(KEY_CORRECT, c);
 
                     if (ch == 'a')
-                        b.putString("paragraph", s);
+                        b.putString(KEY_PARA, s);
 
-                    b.putChar("test", ch);
+                    b.putChar(KEY_TEST, ch);
                     in.putExtras(b);
                     startActivity(in);
                 }
@@ -312,19 +324,19 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
                     if (ch == 'a') {
                         in = new Intent(this, Aptitude.class);
-                        b.putString("paragraph", s);
+                        b.putString(KEY_PARA, s);
                     } else
                         in = new Intent(this, Verbal_Ability.class);
 
-                    b.putChar("load", 'y');
-                    b.putInt("no.", i + 1);
-                    b.putInt("interval", interval);
-                    b.putIntArray("u", u);
-                    b.putIntArray("attempted", a);
-                    b.putIntArray("correct", c);
-                    b.putInt("min", min);
-                    b.putInt("sec", sec);
-                    b.putChar("test", ch);
+                    b.putChar(KEY_LOAD, 'y');
+                    b.putInt(KEY_NO, i + 1);
+                    b.putInt(KEY_INTERVAL, interval);
+                    b.putIntArray(KEY_U, u);
+                    b.putIntArray(KEY_ATTEMPTED, a);
+                    b.putIntArray(KEY_CORRECT, c);
+                    b.putInt(KEY_MIN, min);
+                    b.putInt(KEY_SEC, sec);
+                    b.putChar(KEY_TEST, ch);
                     in.putExtras(b);
                     startActivity(in);
                 }

@@ -32,6 +32,7 @@
     <string name="wait">Please Wait&#8230;</string>
     <string name="alert">Alert</string>
     <string name="first_ques">This is the first question! Click Next to view more.</string>
+    <string name="sub">Are you sure you want to submit the test?</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
