@@ -12,8 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -28,7 +30,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     BootstrapButton b1, b2, b3;
     RadioGroup rg;
     RadioButton rb1, rb2, rb3, rb4, rb5;
-
+    ScrollView scrollView;
 
     int i = 0, flag = 0, p, flag1 = 0, y;
     char ch;
@@ -54,6 +56,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
         rb3 = (RadioButton) findViewById(R.id.radio2);
         rb4 = (RadioButton) findViewById(R.id.radio3);
         rb5 = (RadioButton) findViewById(R.id.radio4);
+        scrollView=(ScrollView)findViewById(R.id.bottomHalf);
         rg.setOnCheckedChangeListener(this);
 
         b1 = (BootstrapButton) findViewById(R.id.button1);
@@ -630,6 +633,15 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
         }
 
         if (v == b2) {
+            // Wait until my scrollView is ready
+            scrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    // Ready, move up
+                    scrollView.fullScroll(View.FOCUS_UP);
+                    scrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                }
+            });
             if (i == 28) {
                 b2.setText(R.string.submit);
             }
@@ -673,7 +685,16 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
                 z[i] = Integer.parseInt(c1.getString(7));
             }
         } else if (v == b1) {
-            if (b2.getText().toString().equals("Submit")) {
+            // Wait until my scrollView is ready
+            scrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    // Ready, move up
+                    scrollView.fullScroll(View.FOCUS_UP);
+                    scrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                }
+            });
+            if (b2.getText().toString().equals(getString(R.string.submit))) {
                 b2.setText(R.string.next);
             }
 

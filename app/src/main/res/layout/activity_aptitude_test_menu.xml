@@ -52,10 +52,10 @@
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/pad_4"
+        android:layout_marginTop="@dimen/pad_8"
         android:text="@string/start"
         android:textAllCaps="true"
         app:bootstrapBrand="success"

@@ -12,9 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -29,6 +31,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     BootstrapButton b1, b2, b3;
     RadioGroup rg;
     RadioButton rb1, rb2, rb3, rb4, rb5;
+    ScrollView scrollView;
 
     int i = 0, y, flag = 0, flag1 = 0, a[] = new int[30], c[] = new int[30];
     char ch;
@@ -41,7 +44,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verbal__ability);
+        setContentView(R.layout.activity_verbal);
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         tv3 = (TextView) findViewById(R.id.textView3);
@@ -63,6 +66,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
         b3 = (BootstrapButton) findViewById(R.id.button3);
         b3.setOnClickListener(this);
 
+        scrollView=(ScrollView)findViewById(R.id.bottomHalf);
         timing();
 
         if (getIntent().getExtras() != null) {
@@ -528,6 +532,15 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
         }
 
         if (v == b2) {
+            // Wait until my scrollView is ready
+            scrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    // Ready, move up
+                    scrollView.fullScroll(View.FOCUS_UP);
+                    scrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                }
+            });
             if (i == 28) {
                 b2.setText(R.string.submit);
             }
@@ -563,7 +576,16 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
                 z[i] = Integer.parseInt(c1.getString(7));
             }
         } else if (v == b1) {
-            if (b2.getText().toString().equals("Submit")) {
+            // Wait until my scrollView is ready
+            scrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    // Ready, move up
+                    scrollView.fullScroll(View.FOCUS_UP);
+                    scrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                }
+            });
+            if (b2.getText().toString().equals(getString(R.string.submit))) {
                 b2.setText(R.string.next);
             }
 
