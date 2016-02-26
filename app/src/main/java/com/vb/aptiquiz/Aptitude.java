@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.RadioButton;
@@ -42,6 +41,34 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     static int interval;
     int z[] = new int[30], u[] = new int[30], a[] = new int[30], c[] = new int[30];
 
+    final static String KEY_LOAD="load";
+    final static String KEY_INTERVAL="interval";
+    final static String KEY_I="i";
+    final static String KEY_NO="no.";
+    final static String KEY_U="u";
+    final static String KEY_ATTEMPTED="attempted";
+    final static String KEY_CORRECT="correct";
+    final static String KEY_PARA="paragraph";
+    final static String KEY_TEST="test";
+    final static String KEY_MIN="min";
+    final static String KEY_SEC="sec";
+    final static String KEY_ID="Id";
+    final static String KEY_QUESTION="Question";
+    final static String KEY_OPA="optiona";
+    final static String KEY_OPB="optionb";
+    final static String KEY_OPC="optionc";
+    final static String KEY_OPD="optiond";
+    final static String KEY_OPE="optione";
+    final static String KEY_TABLE_NAME ="aptitest";
+    final static String KEY_DB="project";
+    final static String KEY_MISC="misc";
+    final static String KEY_RELATION="relation";
+    final static String KEY_LOGIC="logic";
+    final static String KEY_SUFFICIENCY="sufficiency";
+    final static String KEY_SERIES="series";
+    final static String KEY_PUZZLE="puzzle";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,11 +95,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
         b3 = (BootstrapButton) findViewById(R.id.button3);
         b3.setOnClickListener(this);
 
-        DisplayMetrics displayMetrics = getBaseContext().getResources().getDisplayMetrics();
-
-        float dpHeight = displayMetrics.heightPixels / displayMetrics.density;
-        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-
 
         timing();
 
@@ -81,14 +103,14 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
             Intent in = getIntent();
             Bundle b = in.getExtras();
 
-            if (b.getChar("load") == 'n') {
-                interval = b.getInt("interval");
-                loadQuestion(b.getInt("i"), b);
+            if (b.getChar(KEY_LOAD) == 'n') {
+                interval = b.getInt(KEY_INTERVAL);
+                loadQuestion(b.getInt(KEY_I), b);
                 flag1 = 1;
                 flag = 1;
-            } else if (b.getChar("load") == 'y') {
-                interval = b.getInt("interval");
-                loadQuestion(b.getInt("no."), b);
+            } else if (b.getChar(KEY_LOAD) == 'y') {
+                interval = b.getInt(KEY_INTERVAL);
+                loadQuestion(b.getInt(KEY_NO), b);
                 flag1 = 1;
                 flag = 1;
             }
@@ -110,15 +132,15 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     public void onBackPressed() {
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
         ad.setIcon(R.drawable.ic_warning_black_24dp);
-        ad.setTitle("Confirm");
-        ad.setMessage("Are you sure you want to quit this app?");
+        ad.setTitle(getString(R.string.confirm_ad));
+        ad.setMessage(getString(R.string.alert_quit));
         ad.setIcon(android.R.drawable.stat_notify_error);
         ad.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SQLiteDatabase db = openOrCreateDatabase("project", 0, null);
-                db.execSQL("drop table if exists aptitest");
+                SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
+                db.execSQL("drop table if exists "+KEY_TABLE_NAME);
                 db.close();
                 finishAffinity();
             }
@@ -135,8 +157,8 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
     public void loadFirst() {
         SQLiteDatabase db;
-        db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
-        Cursor c = db.query("aptitest", null, null, null, null, null, null);
+        db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        Cursor c = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
         if (c.moveToFirst()) {
             y = Integer.parseInt(c.getString(0));
@@ -154,8 +176,8 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
                 Intent in = getIntent();
                 Bundle b = in.getExtras();
 
-                u = b.getIntArray("u");
-                i = b.getInt("i");
+                u = b.getIntArray(KEY_U);
+                i = b.getInt(KEY_I);
 
                 if (u[i] == 1)
                     rb1.setChecked(true);
@@ -217,7 +239,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
         if (interval == 0) {
             timer.cancel();
-            ProgressDialog pd = ProgressDialog.show(Aptitude.this, "Submitting test", "Please Wait...");
+            ProgressDialog pd = ProgressDialog.show(Aptitude.this, getString(R.string.submit_test), getString(R.string.wait));
             new Thread(new Runnable() {
 
                 @Override
@@ -233,11 +255,11 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
             Intent in = new Intent(Aptitude.this, Result.class);
             Bundle b = new Bundle();
 
-            b.putIntArray("u", u);
-            b.putIntArray("attempted", a);
-            b.putIntArray("correct", c);
-            b.putString("paragraph", s);
-            b.putChar("test", 'a');
+            b.putIntArray(KEY_U, u);
+            b.putIntArray(KEY_ATTEMPTED, a);
+            b.putIntArray(KEY_CORRECT, c);
+            b.putString(KEY_PARA, s);
+            b.putChar(KEY_TEST, 'a');
             in.putExtras(b);
             startActivity(in);
 
@@ -286,17 +308,17 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     public void loadQuestion(int n, Bundle b) {
 
         SQLiteDatabase db;
-        db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
-        Cursor c = db.query("aptitest", null, null, null, null, null, null);
+        db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        Cursor c = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
-        if (b.getIntArray("u") != null) {
-            s = b.getString("paragraph");
-            u = b.getIntArray("u");
-            a = b.getIntArray("attempted");
-            this.c = b.getIntArray("correct");
-            ch = b.getChar("test");
-            min = b.getInt("min");
-            sec = b.getInt("sec");
+        if (b.getIntArray(KEY_U) != null) {
+            s = b.getString(KEY_PARA);
+            u = b.getIntArray(KEY_U);
+            a = b.getIntArray(KEY_ATTEMPTED);
+            this.c = b.getIntArray(KEY_CORRECT);
+            ch = b.getChar(KEY_TEST);
+            min = b.getInt(KEY_MIN);
+            sec = b.getInt(KEY_SEC);
         }
 
         if (c.moveToPosition(n - 1)) {
@@ -360,20 +382,28 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     public void loadTest(int m) {
         int a[] = new int[m];
         SQLiteDatabase db;
-        db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-        db.execSQL("create table if not exists aptitest(Id integer primary key,Question text,optiona text,optionb text,optionc text,optiond text,optione text,correct text)");
-        Cursor cr = db.query("aptitest", null, null, null, null, null, null);
+        db.execSQL("create table if not exists "+ KEY_TABLE_NAME +"("
+                +KEY_ID +" integer primary key,"
+                +KEY_QUESTION+ " text,"
+                +KEY_OPA+" text,"
+                +KEY_OPB+" text,"
+                +KEY_OPC+" text,"
+                +KEY_OPD+" text,"
+                +KEY_OPE+" text,"
+                +KEY_CORRECT+" text)");
+        Cursor cr = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
         if (cr.getCount() != 30) {
 
-            Cursor c1 = db.query("misc", null, null, null, null, null, null);
-            Cursor c2 = db.query("relation", null, null, null, null, null, null);
-            Cursor c3 = db.query("logic", null, null, null, null, null, null);
-            Cursor c4 = db.query("sufficiency", null, null, null, null, null, null);
-            Cursor c5 = db.query("series", null, null, null, null, null, null);
-            Cursor c6 = db.query("puzzle", null, null, null, null, null, null);
-            Cursor c7 = db.query("paragraph", null, null, null, null, null, null);
+            Cursor c1 = db.query(KEY_MISC, null, null, null, null, null, null);
+            Cursor c2 = db.query(KEY_RELATION, null, null, null, null, null, null);
+            Cursor c3 = db.query(KEY_LOGIC, null, null, null, null, null, null);
+            Cursor c4 = db.query(KEY_SUFFICIENCY, null, null, null, null, null, null);
+            Cursor c5 = db.query(KEY_SERIES, null, null, null, null, null, null);
+            Cursor c6 = db.query(KEY_PUZZLE, null, null, null, null, null, null);
+            Cursor c7 = db.query(KEY_PARA, null, null, null, null, null, null);
 
             int c = 0, n = 1;
             a = random(5, 50);
@@ -391,17 +421,17 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                     ContentValues cv = new ContentValues();
 
-                    cv.put("Id", n);
-                    cv.put("Question", s1);
-                    cv.put("optiona", s2);
-                    cv.put("optionb", s3);
-                    cv.put("optionc", s4);
-                    cv.put("optiond", s5);
-                    cv.put("optione", s6);
-                    cv.put("correct", z);
+                    cv.put(KEY_ID, n);
+                    cv.put(KEY_QUESTION, s1);
+                    cv.put(KEY_OPA, s2);
+                    cv.put(KEY_OPB, s3);
+                    cv.put(KEY_OPC, s4);
+                    cv.put(KEY_OPD, s5);
+                    cv.put(KEY_OPE, s6);
+                    cv.put(KEY_CORRECT, z);
                     n++;
 
-                    db.insert("aptitest", null, cv);
+                    db.insert(KEY_TABLE_NAME, null, cv);
                 }
             } while (c < 5);
 
@@ -424,17 +454,17 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                     ContentValues cv = new ContentValues();
 
-                    cv.put("Id", n);
-                    cv.put("Question", s1);
-                    cv.put("optiona", s2);
-                    cv.put("optionb", s3);
-                    cv.put("optionc", s4);
-                    cv.put("optiond", s5);
-                    cv.put("optione", s6);
-                    cv.put("correct", z);
+                    cv.put(KEY_ID, n);
+                    cv.put(KEY_QUESTION, s1);
+                    cv.put(KEY_OPA, s2);
+                    cv.put(KEY_OPB, s3);
+                    cv.put(KEY_OPC, s4);
+                    cv.put(KEY_OPD, s5);
+                    cv.put(KEY_OPE, s6);
+                    cv.put(KEY_CORRECT, z);
                     n++;
 
-                    db.insert("aptitest", null, cv);
+                    db.insert(KEY_TABLE_NAME, null, cv);
                 }
             } while (c < 5);
 
@@ -457,17 +487,17 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                     ContentValues cv = new ContentValues();
 
-                    cv.put("Id", n);
-                    cv.put("Question", s1);
-                    cv.put("optiona", s2);
-                    cv.put("optionb", s3);
-                    cv.put("optionc", s4);
-                    cv.put("optiond", s5);
-                    cv.put("optione", s6);
-                    cv.put("correct", z);
+                    cv.put(KEY_ID, n);
+                    cv.put(KEY_QUESTION, s1);
+                    cv.put(KEY_OPA, s2);
+                    cv.put(KEY_OPB, s3);
+                    cv.put(KEY_OPC, s4);
+                    cv.put(KEY_OPD, s5);
+                    cv.put(KEY_OPE, s6);
+                    cv.put(KEY_CORRECT, z);
                     n++;
 
-                    db.insert("aptitest", null, cv);
+                    db.insert(KEY_TABLE_NAME, null, cv);
                 }
             } while (c < 5);
 
@@ -490,17 +520,17 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                     ContentValues cv = new ContentValues();
 
-                    cv.put("Id", n);
-                    cv.put("Question", s1);
-                    cv.put("optiona", s2);
-                    cv.put("optionb", s3);
-                    cv.put("optionc", s4);
-                    cv.put("optiond", s5);
-                    cv.put("optione", s6);
-                    cv.put("correct", z);
+                    cv.put(KEY_ID, n);
+                    cv.put(KEY_QUESTION, s1);
+                    cv.put(KEY_OPA, s2);
+                    cv.put(KEY_OPB, s3);
+                    cv.put(KEY_OPC, s4);
+                    cv.put(KEY_OPD, s5);
+                    cv.put(KEY_OPE, s6);
+                    cv.put(KEY_CORRECT, z);
                     n++;
 
-                    db.insert("aptitest", null, cv);
+                    db.insert(KEY_TABLE_NAME, null, cv);
                 }
             } while (c < 5);
 
@@ -523,17 +553,17 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                     ContentValues cv = new ContentValues();
 
-                    cv.put("Id", n);
-                    cv.put("Question", s1);
-                    cv.put("optiona", s2);
-                    cv.put("optionb", s3);
-                    cv.put("optionc", s4);
-                    cv.put("optiond", s5);
-                    cv.put("optione", s6);
-                    cv.put("correct", z);
+                    cv.put(KEY_ID, n);
+                    cv.put(KEY_QUESTION, s1);
+                    cv.put(KEY_OPA, s2);
+                    cv.put(KEY_OPB, s3);
+                    cv.put(KEY_OPC, s4);
+                    cv.put(KEY_OPD, s5);
+                    cv.put(KEY_OPE, s6);
+                    cv.put(KEY_CORRECT, z);
                     n++;
 
-                    db.insert("aptitest", null, cv);
+                    db.insert(KEY_TABLE_NAME, null, cv);
                 }
             } while (c < 5);
 
@@ -589,17 +619,17 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                         ContentValues cv = new ContentValues();
 
-                        cv.put("Id", n);
-                        cv.put("Question", s1);
-                        cv.put("optiona", s2);
-                        cv.put("optionb", s3);
-                        cv.put("optionc", s4);
-                        cv.put("optiond", s5);
-                        cv.put("optione", s6);
-                        cv.put("correct", z);
+                        cv.put(KEY_ID, n);
+                        cv.put(KEY_QUESTION, s1);
+                        cv.put(KEY_OPA, s2);
+                        cv.put(KEY_OPB, s3);
+                        cv.put(KEY_OPC, s4);
+                        cv.put(KEY_OPD, s5);
+                        cv.put(KEY_OPE, s6);
+                        cv.put(KEY_CORRECT, z);
                         n++;
 
-                        db.insert("aptitest", null, cv);
+                        db.insert(KEY_TABLE_NAME, null, cv);
                     }
                 } while (c < 5);
             }
@@ -618,8 +648,8 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     public void onClick(View v) {
 
         SQLiteDatabase db;
-        db = openOrCreateDatabase("project", SQLiteDatabase.CREATE_IF_NECESSARY, null);
-        Cursor c1 = db.query("aptitest", null, null, null, null, null, null);
+        db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        Cursor c1 = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
         if (u[i] == 0)
             a[i] = -1;
@@ -650,15 +680,15 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
                 Intent in = new Intent(this, Summary.class);
                 Bundle b = new Bundle();
 
-                b.putString("paragraph", s);
-                b.putIntArray("u", u);
-                b.putIntArray("attempted", a);
-                b.putIntArray("correct", c);
-                b.putInt("i", i);
-                b.putInt("interval", interval);
-                b.putInt("min", min);
-                b.putInt("sec", sec);
-                b.putChar("test", 'a');
+                b.putString(KEY_PARA, s);
+                b.putIntArray(KEY_U, u);
+                b.putIntArray(KEY_ATTEMPTED, a);
+                b.putIntArray(KEY_CORRECT, c);
+                b.putInt(KEY_I, i);
+                b.putInt(KEY_INTERVAL, interval);
+                b.putInt(KEY_MIN, min);
+                b.putInt(KEY_SEC, sec);
+                b.putChar(KEY_TEST, 'a');
                 in.putExtras(b);
                 startActivity(in);
             }
@@ -720,8 +750,8 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
                 if (c1.isBeforeFirst()) {
                     AlertDialog.Builder ad = new AlertDialog.Builder(this);
                     ad.setIcon(R.drawable.ic_warning_black_24dp);
-                    ad.setTitle("Alert");
-                    ad.setMessage("This is the first question ! Click Next to view more.");
+                    ad.setTitle(getString(R.string.alert));
+                    ad.setMessage(getString(R.string.first_ques));
                     ad.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 
                         @Override
@@ -735,15 +765,15 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
             Intent in = new Intent(this, Summary.class);
             Bundle b = new Bundle();
 
-            b.putString("paragraph", s);
-            b.putIntArray("u", u);
-            b.putIntArray("attempted", a);
-            b.putIntArray("correct", c);
-            b.putInt("i", i);
-            b.putInt("interval", interval);
-            b.putInt("min", min);
-            b.putInt("sec", sec);
-            b.putChar("test", 'a');
+            b.putString(KEY_PARA, s);
+            b.putIntArray(KEY_U, u);
+            b.putIntArray(KEY_ATTEMPTED, a);
+            b.putIntArray(KEY_CORRECT, c);
+            b.putInt(KEY_I, i);
+            b.putInt(KEY_INTERVAL, interval);
+            b.putInt(KEY_MIN, min);
+            b.putInt(KEY_SEC, sec);
+            b.putChar(KEY_TEST, 'a');
             in.putExtras(b);
             startActivity(in);
         }

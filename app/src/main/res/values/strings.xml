@@ -26,6 +26,12 @@
     <string name="confirm">Confirm Submit</string>
     <string name="close">Close</string>
     <string name="title_activity_home">Home</string>
+    <string name="confirm_ad">Confirm</string>
+    <string name="alert_quit">Are you sure you want to quit this app?</string>
+    <string name="submit_test">Submitting Test</string>
+    <string name="wait">Please Wait&#8230;</string>
+    <string name="alert">Alert</string>
+    <string name="first_ques">This is the first question! Click Next to view more.</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
