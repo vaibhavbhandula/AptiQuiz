@@ -8,6 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context="com.vb.aptiquiz.Home">
 
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,8 +27,9 @@
 
     <include layout="@layout/transparent" />
 
+
     <com.getbase.floatingactionbutton.FloatingActionsMenu
-        android:id="@+id/fabmenu"
+        android:id="@+id/fabMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -38,14 +40,14 @@
         fab:fab_labelsPosition="left">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatapti"
+            android:id="@+id/floatApti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_title="@string/apti" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatverbal"
+            android:id="@+id/floatVerbal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/colorAccent"

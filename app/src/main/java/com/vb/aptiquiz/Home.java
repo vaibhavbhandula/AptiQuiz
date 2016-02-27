@@ -54,9 +54,9 @@ public class Home extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        apti = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.floatapti);
+        apti = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.floatApti);
         apti.setOnClickListener(this);
-        verb = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.floatverbal);
+        verb = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.floatVerbal);
         verb.setOnClickListener(this);
 
         apti.setIcon(R.drawable.ic_assessment_white_24dp);
@@ -66,7 +66,7 @@ public class Home extends AppCompatActivity
         verb.setSize(com.getbase.floatingactionbutton.FloatingActionButton.SIZE_MINI);
 
         view = (LinearLayout) findViewById(R.id.transparent);
-        fabMenu = (FloatingActionsMenu) findViewById(R.id.fabmenu);
+        fabMenu = (FloatingActionsMenu) findViewById(R.id.fabMenu);
         fabMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override
             public void onMenuExpanded() {
@@ -93,7 +93,18 @@ public class Home extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                if (fabMenu.isExpanded()) {
+                    view.setVisibility(View.GONE);
+                    fabMenu.collapse();
+                }
+            }
+        };
+
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -109,6 +120,9 @@ public class Home extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (fabMenu.isExpanded()) {
+            view.setVisibility(View.GONE);
+            fabMenu.collapse();
         } else {
             super.onBackPressed();
         }
@@ -245,8 +259,8 @@ public class Home extends AppCompatActivity
 
 
         if (id == R.id.apti) {
-            // Handle the camera action
             startActivity(new Intent(Home.this, AptitudeTestMenu.class));
+
         } else if (id == R.id.verb) {
             startActivity(new Intent(Home.this, VerbalTestMenu.class));
 
@@ -275,9 +289,13 @@ public class Home extends AppCompatActivity
         if (v == apti) {
             Intent in = new Intent(this, AptitudeTestMenu.class);
             startActivity(in);
+            view.setVisibility(View.GONE);
+            fabMenu.collapse();
         } else if (v == verb) {
             Intent in = new Intent(this, VerbalTestMenu.class);
             startActivity(in);
+            view.setVisibility(View.GONE);
+            fabMenu.collapse();
         }
     }
 }
