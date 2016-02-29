@@ -37,6 +37,9 @@
     <string name="time_placeholder">Time : %1$d : %2$d</string>
     <string name="time_place_sec">Time : %1$d : 0%2$d</string>
     <string name="para_placeholder">Paragraph:\n%1$s\n\nQ. %2$s</string>
+    <string name="summary_placeholder">Total No. of Questions : 30\nAttempted : %1$d\nNot Attempted : %2$d\nNot Viewed : %3$d</string>
+    <string name="result_placeholder">Correct : %1$d\nInCorrect %2$d\nNot Attempted : %3$d</string>
+    <string name="score">Score : %1$f%%\n%2$s</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -20,6 +20,8 @@ public class Result extends AppCompatActivity implements OnClickListener {
     int res = 0, left = 0, u[] = new int[30], a[] = new int[30], c[] = new int[30];
     String s;
     char ch;
+    String result="";
+    float sc;
 
     final static String KEY_TABLE_NAME_VB = "verbaltest";
     final static String KEY_NO = "no.";
@@ -160,19 +162,26 @@ public class Result extends AppCompatActivity implements OnClickListener {
             }
         }
 
+        sc=(float)(res/(0.3));
+
         tv.setMovementMethod(new ScrollingMovementMethod());
-        tv.setText("Correct         :  " + res + "\nInCorrect       :  " + (left) + "\nNot Attempted   :  " + (30 - left - res));
+        tv.setText(String.format(getString(R.string.result_placeholder),res,left,(30-left-res)));
+
         if (ch == 'a') {
-            if (res / (0.3) >= 75) {
-                score.setText("Score  : " + (res / (0.3)) + "%\n" + "Passed");
+            if (sc >= 75) {
+                result="Passed";
+                score.setText(String.format(getString(R.string.score),sc,result));
             } else {
-                score.setText("Score  : " + (res / (0.3)) + "%\n" + "Failed");
+                result="Failed";
+                score.setText(String.format(getString(R.string.score),sc,result));
             }
         } else {
-            if (res / (0.3) >= 60) {
-                score.setText("Score  : " + (res / (0.3)) + "%\n" + "Passed");
+            if (sc >= 60) {
+                result="Passed";
+                score.setText(String.format(getString(R.string.score),sc,result));
             } else {
-                score.setText("Score  : " + (res / (0.3)) + "%\n" + "Failed");
+                result="Failed";
+                score.setText(String.format(getString(R.string.score),sc,result));
             }
         }
     }
