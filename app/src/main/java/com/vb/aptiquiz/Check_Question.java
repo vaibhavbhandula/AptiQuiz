@@ -79,7 +79,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
             String s7 = c.getString(7);
 
             if ((n == 26 || n == 27 || n == 28 || n == 29 || n == 30) && b.getChar(KEY_TEST) == 'a') {
-                t = "Paragraph :\n" + s + "\n\n" + "Question :  " + s1;
+                t = String.format(getString(R.string.para_placeholder), s, s1);
             } else {
                 t = "" + s1;
             }
@@ -146,7 +146,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SQLiteDatabase db = openOrCreateDatabase("project", 0, null);
+                SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTI);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME_VB);
                 db.close();

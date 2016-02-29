@@ -190,7 +190,7 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
         }
 
         tv4.setMovementMethod(new ScrollingMovementMethod());
-        tv4.setText(String.format(getString(R.string.summary_placeholder),at,nt,v));
+        tv4.setText(String.format(getString(R.string.summary_placeholder), at, nt, v));
     }
 
 
@@ -250,9 +250,9 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
     public int setInterval() {
 
         if (sec < 10) {
-            tv5.setText(String.format(getString(R.string.time_place_sec),min,sec));
+            tv5.setText(String.format(getString(R.string.time_place_sec), min, sec));
         } else {
-            tv5.setText(String.format(getString(R.string.time_placeholder),min,sec));
+            tv5.setText(String.format(getString(R.string.time_placeholder), min, sec));
         }
 
         if (sec == 0) {
