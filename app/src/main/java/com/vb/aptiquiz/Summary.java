@@ -292,6 +292,7 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    timer.cancel();
                     Intent in = new Intent(Summary.this, Result.class);
                     Bundle b = new Bundle();
 

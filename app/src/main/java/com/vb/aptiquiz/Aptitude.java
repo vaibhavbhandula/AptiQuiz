@@ -139,6 +139,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                timer.cancel();
                 SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME);
                 db.close();
