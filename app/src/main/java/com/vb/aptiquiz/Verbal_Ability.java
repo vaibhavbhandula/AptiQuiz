@@ -27,7 +27,7 @@ import java.util.TimerTask;
 
 
 public class Verbal_Ability extends AppCompatActivity implements OnClickListener, OnCheckedChangeListener {
-    TextView tv1, tv2, tv3;
+    TextView tv1, tv2, tv3, time;
     BootstrapButton b1, b2, b3;
     RadioGroup rg;
     RadioButton rb1, rb2, rb3, rb4, rb5;
@@ -40,6 +40,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     int sec = 0;
     int min = 25;
     int z[] = new int[30], u[] = new int[30];
+    final static int ques = 30;
 
     final static String KEY_LOAD = "load";
     final static String KEY_INTERVAL = "interval";
@@ -74,6 +75,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         tv3 = (TextView) findViewById(R.id.textView3);
+        time = (TextView) findViewById(R.id.time);
 
         rg = (RadioGroup) findViewById(R.id.radioGroup1);
         rb1 = (RadioButton) findViewById(R.id.radio0);
@@ -159,7 +161,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
             y = Integer.parseInt(c.getString(0));
 
             tv2.setMovementMethod(new ScrollingMovementMethod());
-            tv2.setText("" + c.getString(1));
+            tv2.setText(c.getString(1));
             rb1.setText(c.getString(2));
             rb2.setText(c.getString(3));
             rb3.setText(c.getString(4));
@@ -220,9 +222,11 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     public int setInterval() {
 
         if (sec < 10) {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + "0" + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_place_sec), min, sec));
         } else {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_placeholder), min, sec));
         }
 
         if (sec == 0) {
@@ -322,7 +326,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
             String s6 = c.getString(6);
 
             tv2.setMovementMethod(new ScrollingMovementMethod());
-            tv2.setText("" + s1);
+            tv2.setText(s1);
             rb1.setText(s2);
             rb2.setText(s3);
             rb3.setText(s4);
@@ -602,7 +606,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
                 y = Integer.parseInt(c1.getString(0));
 
                 tv2.setMovementMethod(new ScrollingMovementMethod());
-                tv2.setText("" + c1.getString(1));
+                tv2.setText(c1.getString(1));
                 rb1.setText(c1.getString(2));
                 rb2.setText(c1.getString(3));
                 rb3.setText(c1.getString(4));
@@ -630,7 +634,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
                 y = Integer.parseInt(c1.getString(0));
 
                 tv2.setMovementMethod(new ScrollingMovementMethod());
-                tv2.setText("" + c1.getString(1));
+                tv2.setText(c1.getString(1));
                 rb1.setText(c1.getString(2));
                 rb2.setText(c1.getString(3));
                 rb3.setText(c1.getString(4));
@@ -682,9 +686,11 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
             }
         }
         if (sec < 10) {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + "0" + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_place_sec), min, sec));
         } else {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_placeholder), min, sec));
         }
         if (c1 != null && !c1.isClosed())
             c1.close();

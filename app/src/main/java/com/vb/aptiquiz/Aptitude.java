@@ -25,7 +25,7 @@ import java.util.TimerTask;
 
 
 public class Aptitude extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
-    TextView tv1, tv2, tv3;
+    TextView tv1, tv2, tv3, time;
     BootstrapButton b1, b2, b3;
     RadioGroup rg;
     RadioButton rb1, rb2, rb3, rb4, rb5;
@@ -39,6 +39,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     int sec = 0;
     int min = 40;
     static int interval;
+    final static int ques = 30;
     int z[] = new int[30], u[] = new int[30], a[] = new int[30], c[] = new int[30];
 
     final static String KEY_LOAD = "load";
@@ -76,6 +77,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         tv3 = (TextView) findViewById(R.id.textView3);
+        time = (TextView) findViewById(R.id.time);
 
         rg = (RadioGroup) findViewById(R.id.radioGroup1);
         rb1 = (RadioButton) findViewById(R.id.radio0);
@@ -165,7 +167,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
             y = Integer.parseInt(c.getString(0));
 
             tv2.setMovementMethod(new ScrollingMovementMethod());
-            tv2.setText("" + c.getString(1));
+            tv2.setText(c.getString(1));
             rb1.setText(c.getString(2));
             rb2.setText(c.getString(3));
             rb3.setText(c.getString(4));
@@ -226,9 +228,11 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     public int setInterval() {
 
         if (sec < 10) {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + "0" + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_place_sec), min, sec));
         } else {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_placeholder), min, sec));
         }
 
         if (sec == 0) {
@@ -339,10 +343,10 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
             if (n == 26 || n == 27 || n == 28 || n == 29 || n == 30) {
                 tv2.setMovementMethod(new ScrollingMovementMethod());
-                tv2.setText("Paragraph:\n" + s + "\n\n" + "Q. " + s1);
+                tv2.setText(String.format(getString(R.string.para_placeholder), s, s1));
             } else {
                 tv2.setMovementMethod(new ScrollingMovementMethod());
-                tv2.setText("" + s1);
+                tv2.setText(s1);
             }
 
             rb1.setText(s2);
@@ -701,10 +705,10 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                 if (i == 25 || i == 26 || i == 27 || i == 28 || i == 29) {
                     tv2.setMovementMethod(new ScrollingMovementMethod());
-                    tv2.setText("Paragraph:\n" + s + "\n\n" + "Q. " + c1.getString(1));
+                    tv2.setText(String.format(getString(R.string.para_placeholder), s, c1.getString(1)));
                 } else {
                     tv2.setMovementMethod(new ScrollingMovementMethod());
-                    tv2.setText("" + c1.getString(1));
+                    tv2.setText(c1.getString(1));
                 }
 
                 rb1.setText(c1.getString(2));
@@ -736,10 +740,10 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
                 if (i == 24 || i == 25 || i == 26 || i == 27 || i == 28) {
                     tv2.setMovementMethod(new ScrollingMovementMethod());
-                    tv2.setText("Paragraph:" + "\n" + s + "\n\n" + "Q. " + c1.getString(1));
+                    tv2.setText(String.format(getString(R.string.para_placeholder), s, c1.getString(1)));
                 } else {
                     tv2.setMovementMethod(new ScrollingMovementMethod());
-                    tv2.setText("" + c1.getString(1));
+                    tv2.setText(c1.getString(1));
                 }
 
                 rb1.setText(c1.getString(2));
@@ -793,9 +797,11 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
             }
         }
         if (sec < 10) {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + "0" + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_place_sec), min, sec));
         } else {
-            tv3.setText("Question " + y + " of 30" + "\nTimer : " + min + " : " + sec);
+            tv3.setText(String.format(getString(R.string.question_placeholder), y, ques));
+            time.setText(String.format(getString(R.string.time_placeholder), min, sec));
         }
         if (c1 != null && !c1.isClosed())
             c1.close();

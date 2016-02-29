@@ -1032,7 +1032,7 @@ public class AptitudeTestMenu extends AppCompatActivity implements View.OnClickL
         cv70.put(KEY_CORRECT, "4");
 
         cv71.put(KEY_ID, 21);
-        cv71.put(KEY_QUESTION, ":Statement: All the goats are tigers. All the tigers are lions.\n Conclusions:\nI. All the goats are lions.\nII. All the lions are goats.\nIII. Some lions are goats.\nIV. Some tigers are goats.");
+        cv71.put(KEY_QUESTION, "Statement: All the goats are tigers. All the tigers are lions.\n Conclusions:\nI. All the goats are lions.\nII. All the lions are goats.\nIII. Some lions are goats.\nIV. Some tigers are goats.");
         cv71.put(KEY_OPA, "All the four");
         cv71.put(KEY_OPB, "Only I,II and III");
         cv71.put(KEY_OPC, "Only I,III and IV");

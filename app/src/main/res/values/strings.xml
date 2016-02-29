@@ -33,6 +33,10 @@
     <string name="alert">Alert</string>
     <string name="first_ques">This is the first question! Click Next to view more.</string>
     <string name="sub">Are you sure you want to submit the test?</string>
+    <string name="question_placeholder">Question %1$d of %2$d</string>
+    <string name="time_placeholder">Time : %1$d : %2$d</string>
+    <string name="time_place_sec">Time : %1$d : 0%2$d</string>
+    <string name="para_placeholder">Paragraph:\n%1$s\n\nQ. %2$s</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
