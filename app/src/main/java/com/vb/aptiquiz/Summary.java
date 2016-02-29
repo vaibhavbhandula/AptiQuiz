@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,6 +46,10 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         b1 = (BootstrapButton) findViewById(R.id.button31);
         b1.setOnClickListener(this);
 
@@ -187,6 +192,16 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
         tv4.setMovementMethod(new ScrollingMovementMethod());
         tv4.setText("Total No. of Questions  :  " + 30 + "\n" + "Attempted               :  " + (at)
                 + "\nNot Attempted           :  " + nt + "\nNot Viewed              :  " + (v));
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return false;
     }
 
     public void onBackPressed() {
