@@ -31,6 +31,8 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     RadioButton rb1, rb2, rb3, rb4, rb5;
     ScrollView scrollView;
 
+    SQLiteDatabase db;
+
     int i = 0, flag = 0, p, flag1 = 0, y;
     char ch;
     String s;
@@ -142,7 +144,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 timer.cancel();
-                SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
+                db = openOrCreateDatabase(KEY_DB, 0, null);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME);
                 db.close();
                 finishAffinity();
@@ -159,7 +161,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     }
 
     public void loadFirst() {
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
@@ -312,7 +313,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
     public void loadQuestion(int n, Bundle b) {
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
@@ -382,11 +382,12 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
 
         if (c != null && !c.isClosed())
             c.close();
+
+        db.close();
     }
 
     public void loadTest(int m) {
         int a[] = new int[m];
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
         db.execSQL("create table if not exists " + KEY_TABLE_NAME + "("
@@ -652,7 +653,6 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
     @Override
     public void onClick(View v) {
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c1 = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
@@ -668,7 +668,7 @@ public class Aptitude extends AppCompatActivity implements View.OnClickListener,
         }
 
         if (v == b2) {
-            // Wait until my scrollView is ready
+            // Wait until scrollView is ready
             scrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                 @Override
                 public void onGlobalLayout() {
