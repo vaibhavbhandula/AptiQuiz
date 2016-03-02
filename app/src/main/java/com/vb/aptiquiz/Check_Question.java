@@ -24,6 +24,9 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
     TextView urAns, corAns;
     String uAns, cAns;
     TextView corAnslabel;
+
+    SQLiteDatabase db;
+
     final static String KEY_TABLE_NAME_VB = "verbaltest";
     final static String KEY_NO = "no.";
     final static String KEY_U = "u";
@@ -58,7 +61,6 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
     public void loadQuestion(int n, Bundle b, String nm) {
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c = db.query(nm, null, null, null, null, null, null);
 
@@ -120,6 +122,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
         }
 
         c.close();
+        db.close();
     }
 
     @Override
@@ -146,7 +149,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
+                db = openOrCreateDatabase(KEY_DB, 0, null);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTI);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME_VB);
                 db.close();

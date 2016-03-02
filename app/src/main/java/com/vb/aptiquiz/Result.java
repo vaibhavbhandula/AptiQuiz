@@ -23,6 +23,8 @@ public class Result extends AppCompatActivity implements OnClickListener {
     String result = "";
     float sc;
 
+    SQLiteDatabase db;
+
     final static String KEY_TABLE_NAME_VB = "verbaltest";
     final static String KEY_NO = "no.";
     final static String KEY_U = "u";
@@ -196,7 +198,7 @@ public class Result extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
+                db = openOrCreateDatabase(KEY_DB, 0, null);
                 if (ch == 'a')
                     db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTI);
                 else

@@ -42,6 +42,8 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     int z[] = new int[30], u[] = new int[30];
     final static int ques = 30;
 
+    SQLiteDatabase db;
+
     final static String KEY_LOAD = "load";
     final static String KEY_INTERVAL = "interval";
     final static String KEY_I = "i";
@@ -136,7 +138,7 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 timer.cancel();
-                SQLiteDatabase db = openOrCreateDatabase(KEY_DB, 0, null);
+                db = openOrCreateDatabase(KEY_DB, 0, null);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME);
                 db.close();
                 finishAffinity();
@@ -153,7 +155,6 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     }
 
     public void loadFirst() {
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
@@ -303,7 +304,6 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
 
     public void loadQuestion(int n, Bundle b) {
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 
@@ -360,7 +360,6 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
 
     public void loadTest(int m) {
         int a[] = new int[m];
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
         db.execSQL("create table if not exists " + KEY_TABLE_NAME + "("
@@ -555,7 +554,6 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
 
     @Override
     public void onClick(View v) {
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
         Cursor c1 = db.query(KEY_TABLE_NAME, null, null, null, null, null, null);
 

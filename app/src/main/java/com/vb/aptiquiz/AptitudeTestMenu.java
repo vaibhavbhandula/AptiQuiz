@@ -16,6 +16,9 @@ public class AptitudeTestMenu extends AppCompatActivity implements View.OnClickL
     BootstrapButton b1;
     TextView tv;
     String t;
+
+    SQLiteDatabase db;
+
     final static String KEY_ID = "Id";
     final static String KEY_QUESTION = "Question";
     final static String KEY_OPA = "optiona";
@@ -54,7 +57,6 @@ public class AptitudeTestMenu extends AppCompatActivity implements View.OnClickL
                 "All the Best!";
         tv.setText(t);
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
 
@@ -86,7 +88,6 @@ public class AptitudeTestMenu extends AppCompatActivity implements View.OnClickL
 
     {
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
         ContentValues cv1 = new ContentValues();

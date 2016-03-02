@@ -23,6 +23,8 @@ public class Home extends AppCompatActivity
     LinearLayout view;
     FloatingActionsMenu fabMenu;
 
+    SQLiteDatabase db;
+
     final static String KEY_ID = "Id";
     final static String KEY_CORRECT = "correct";
     final static String KEY_QUESTION = "Question";
@@ -130,7 +132,6 @@ public class Home extends AppCompatActivity
 
 
     void setUpDB() {
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
         db.execSQL("create table if not exists " + KEY_SUFFICIENCY + "("

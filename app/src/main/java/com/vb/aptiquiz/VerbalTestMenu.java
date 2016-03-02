@@ -19,6 +19,8 @@ public class VerbalTestMenu extends AppCompatActivity implements OnClickListener
     TextView tv;
     String t;
 
+    SQLiteDatabase db;
+
     final static String KEY_CORRECT = "correct";
     final static String KEY_ID = "Id";
     final static String KEY_QUESTION = "Question";
@@ -55,7 +57,6 @@ public class VerbalTestMenu extends AppCompatActivity implements OnClickListener
         tv.setText(t);
 
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
         Cursor c1, c2, c3, c4, c5;
@@ -82,7 +83,6 @@ public class VerbalTestMenu extends AppCompatActivity implements OnClickListener
 
     {
 
-        SQLiteDatabase db;
         db = openOrCreateDatabase(KEY_DB, SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
         ContentValues cv151 = new ContentValues();
