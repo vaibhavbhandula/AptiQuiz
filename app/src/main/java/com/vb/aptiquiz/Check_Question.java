@@ -145,7 +145,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
         ad.setTitle(getString(R.string.confirm_ad));
         ad.setMessage(getString(R.string.alert_quit));
         ad.setIcon(android.R.drawable.stat_notify_error);
-        ad.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+        ad.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -157,7 +157,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        ad.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+        ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
