@@ -29,6 +29,7 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
     char ch;
     static int interval;
     static Timer timer;
+    
     final static String KEY_LOAD = "load";
     final static String KEY_INTERVAL = "interval";
     final static String KEY_I = "i";

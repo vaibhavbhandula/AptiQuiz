@@ -40,11 +40,11 @@ public class Home extends AppCompatActivity
     final static String KEY_SUFFICIENCY = "sufficiency";
     final static String KEY_SERIES = "series";
     final static String KEY_PUZZLE = "puzzle";
-    final static String KEY_COMSEN = "comsen";
+    final static String KEY_COMPLETE_SENTENCE = "comsen";
     final static String KEY_THEME = "theme";
-    final static String KEY_CORSEN = "corsen";
-    final static String KEY_IMPSEN = "impsen";
-    final static String KEY_SELWORD = "selword";
+    final static String KEY_CORRECT_SENTENCE = "corsen";
+    final static String KEY_IMPORTANT_SENTENCE = "impsen";
+    final static String KEY_SELECT_WORD = "selword";
     final static String KEY_PARA = "paragraph";
     final static String KEY_PID = "Pid";
 
@@ -164,7 +164,7 @@ public class Home extends AppCompatActivity
                 + KEY_OPE + " text,"
                 + KEY_CORRECT + " text)");
 
-        db.execSQL("create table if not exists " + KEY_CORSEN + "("
+        db.execSQL("create table if not exists " + KEY_CORRECT_SENTENCE + "("
                 + KEY_ID + " integer primary key,"
                 + KEY_QUESTION + " text,"
                 + KEY_OPA + " text,"
@@ -184,7 +184,7 @@ public class Home extends AppCompatActivity
                 + KEY_OPE + " text,"
                 + KEY_CORRECT + " text)");
 
-        db.execSQL("create table if not exists " + KEY_IMPSEN + "("
+        db.execSQL("create table if not exists " + KEY_IMPORTANT_SENTENCE + "("
                 + KEY_ID + " integer primary key,"
                 + KEY_QUESTION + " text,"
                 + KEY_OPA + " text,"
@@ -204,7 +204,7 @@ public class Home extends AppCompatActivity
                 + KEY_OPE + " text,"
                 + KEY_CORRECT + " text)");
 
-        db.execSQL("create table if not exists " + KEY_COMSEN + "("
+        db.execSQL("create table if not exists " + KEY_COMPLETE_SENTENCE + "("
                 + KEY_ID + " integer primary key,"
                 + KEY_QUESTION + " text,"
                 + KEY_OPA + " text,"
@@ -214,7 +214,7 @@ public class Home extends AppCompatActivity
                 + KEY_OPE + " text,"
                 + KEY_CORRECT + " text)");
 
-        db.execSQL("create table if not exists " + KEY_SELWORD + "("
+        db.execSQL("create table if not exists " + KEY_SELECT_WORD + "("
                 + KEY_ID + " integer primary key,"
                 + KEY_QUESTION + " text,"
                 + KEY_OPA + " text,"

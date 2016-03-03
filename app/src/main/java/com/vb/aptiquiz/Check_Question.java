@@ -23,7 +23,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
     char ch;
     TextView urAns, corAns;
     String uAns, cAns;
-    TextView corAnslabel;
+    TextView corAnsLabel;
 
     SQLiteDatabase db;
 
@@ -32,7 +32,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
     final static String KEY_U = "u";
     final static String KEY_PARA = "paragraph";
     final static String KEY_TEST = "test";
-    final static String KEY_TABLE_NAME_APTI = "aptitest";
+    final static String KEY_TABLE_NAME_APTITUDE = "aptitest";
     final static String KEY_DB = "project";
 
 
@@ -46,13 +46,13 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
         tv = (TextView) findViewById(R.id.textView1);
         urAns = (TextView) findViewById(R.id.urans);
         corAns = (TextView) findViewById(R.id.corans);
-        corAnslabel = (TextView) findViewById(R.id.corAnsText);
+        corAnsLabel = (TextView) findViewById(R.id.corAnsText);
 
         Intent in = getIntent();
         Bundle b = in.getExtras();
         ch = b.getChar(KEY_TEST);
         if (ch == 'a')
-            loadQuestion(b.getInt(KEY_NO), b, KEY_TABLE_NAME_APTI);
+            loadQuestion(b.getInt(KEY_NO), b, KEY_TABLE_NAME_APTITUDE);
 
         else
             loadQuestion(b.getInt(KEY_NO), b, KEY_TABLE_NAME_VB);
@@ -99,7 +99,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
             } else {
                 uAns = "-";
                 corAns.setVisibility(View.GONE);
-                corAnslabel.setVisibility(View.GONE);
+                corAnsLabel.setVisibility(View.GONE);
             }
 
             Integer i = Integer.parseInt(s7);
@@ -150,7 +150,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 db = openOrCreateDatabase(KEY_DB, 0, null);
-                db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTI);
+                db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTITUDE);
                 db.execSQL("drop table if exists " + KEY_TABLE_NAME_VB);
                 db.close();
                 finishAffinity();

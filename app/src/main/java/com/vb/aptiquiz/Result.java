@@ -32,7 +32,7 @@ public class Result extends AppCompatActivity implements OnClickListener {
     final static String KEY_CORRECT = "correct";
     final static String KEY_PARA = "paragraph";
     final static String KEY_TEST = "test";
-    final static String KEY_TABLE_NAME_APTI = "aptitest";
+    final static String KEY_TABLE_NAME_APTITUDE = "aptitest";
     final static String KEY_DB = "project";
 
     @Override
@@ -200,7 +200,7 @@ public class Result extends AppCompatActivity implements OnClickListener {
             public void onClick(DialogInterface dialog, int which) {
                 db = openOrCreateDatabase(KEY_DB, 0, null);
                 if (ch == 'a')
-                    db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTI);
+                    db.execSQL("drop table if exists " + KEY_TABLE_NAME_APTITUDE);
                 else
                     db.execSQL("drop table if exists " + KEY_TABLE_NAME_VB);
                 db.close();

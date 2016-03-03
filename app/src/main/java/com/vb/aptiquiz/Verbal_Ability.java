@@ -63,11 +63,11 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
     final static String KEY_OPE = "optione";
     final static String KEY_TABLE_NAME = "verbaltest";
     final static String KEY_DB = "project";
-    final static String KEY_COMSEN = "comsen";
+    final static String KEY_COMPLETE_SENTENCE = "comsen";
     final static String KEY_THEME = "theme";
-    final static String KEY_CORSEN = "corsen";
-    final static String KEY_IMPSEN = "impsen";
-    final static String KEY_SELWORD = "selword";
+    final static String KEY_CORRECT_SENTENCE = "corsen";
+    final static String KEY_IMPORTANT_SENTENCE = "impsen";
+    final static String KEY_SELECT_WORD = "selword";
 
 
     @Override
@@ -375,11 +375,11 @@ public class Verbal_Ability extends AppCompatActivity implements OnClickListener
 
         if (cr.getCount() != 30) {
 
-            Cursor c1 = db.query(KEY_COMSEN, null, null, null, null, null, null);
+            Cursor c1 = db.query(KEY_COMPLETE_SENTENCE, null, null, null, null, null, null);
             Cursor c2 = db.query(KEY_THEME, null, null, null, null, null, null);
-            Cursor c3 = db.query(KEY_CORSEN, null, null, null, null, null, null);
-            Cursor c4 = db.query(KEY_IMPSEN, null, null, null, null, null, null);
-            Cursor c5 = db.query(KEY_SELWORD, null, null, null, null, null, null);
+            Cursor c3 = db.query(KEY_CORRECT_SENTENCE, null, null, null, null, null, null);
+            Cursor c4 = db.query(KEY_IMPORTANT_SENTENCE, null, null, null, null, null, null);
+            Cursor c5 = db.query(KEY_SELECT_WORD, null, null, null, null, null, null);
 
             int c = 0, n = 1;
             a = random(m, 78);
