@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
     TextView urAns, corAns;
     String uAns, cAns;
     TextView corAnsLabel;
+    CardView answer;
 
     SQLiteDatabase db;
 
@@ -47,6 +49,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
         urAns = (TextView) findViewById(R.id.urans);
         corAns = (TextView) findViewById(R.id.corans);
         corAnsLabel = (TextView) findViewById(R.id.corAnsText);
+        answer = (CardView) findViewById(R.id.cardViewAns);
 
         Intent in = getIntent();
         Bundle b = in.getExtras();
@@ -100,6 +103,7 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
                 uAns = "-";
                 corAns.setVisibility(View.GONE);
                 corAnsLabel.setVisibility(View.GONE);
+                answer.setVisibility(View.GONE);
             }
 
             Integer i = Integer.parseInt(s7);
