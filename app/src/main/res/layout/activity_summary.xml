@@ -98,7 +98,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="@dimen/elevation">
+                app:cardElevation="@dimen/elevation"
+                app:cardUseCompatPadding="true">
 
 
                 <Button
@@ -128,7 +129,7 @@
                     android:layout_gravity="center"
                     android:background="@android:color/white"
                     android:text="2" />
-                />
+
             </android.support.v7.widget.CardView>
 
 
@@ -204,7 +205,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="@dimen/elevation">
+                app:cardElevation="@dimen/elevation"
+                app:cardUseCompatPadding="true">
 
 
                 <Button
@@ -234,7 +236,7 @@
                     android:layout_gravity="center"
                     android:background="@android:color/white"
                     android:text="7" />
-                />
+
             </android.support.v7.widget.CardView>
 
 
@@ -310,7 +312,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="@dimen/elevation">
+                app:cardElevation="@dimen/elevation"
+                app:cardUseCompatPadding="true">
 
 
                 <Button
@@ -340,7 +343,7 @@
                     android:layout_gravity="center"
                     android:background="@android:color/white"
                     android:text="12" />
-                />
+
             </android.support.v7.widget.CardView>
 
 
@@ -416,7 +419,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="@dimen/elevation">
+                app:cardElevation="@dimen/elevation"
+                app:cardUseCompatPadding="true">
 
 
                 <Button
@@ -446,7 +450,7 @@
                     android:layout_gravity="center"
                     android:background="@android:color/white"
                     android:text="17" />
-                />
+
             </android.support.v7.widget.CardView>
 
 
@@ -522,7 +526,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="@dimen/elevation">
+                app:cardElevation="@dimen/elevation"
+                app:cardUseCompatPadding="true">
 
 
                 <Button
@@ -552,7 +557,7 @@
                     android:layout_gravity="center"
                     android:background="@android:color/white"
                     android:text="22" />
-                />
+
             </android.support.v7.widget.CardView>
 
 
@@ -631,7 +636,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="@dimen/elevation">
+                app:cardElevation="@dimen/elevation"
+                app:cardUseCompatPadding="true">
 
 
                 <Button
@@ -661,7 +667,7 @@
                     android:layout_gravity="center"
                     android:background="@android:color/white"
                     android:text="27" />
-                />
+
             </android.support.v7.widget.CardView>
 
 
