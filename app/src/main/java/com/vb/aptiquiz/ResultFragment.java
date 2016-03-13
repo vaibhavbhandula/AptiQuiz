@@ -3,25 +3,27 @@ package com.vb.aptiquiz;
 import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 /**
- * Created by Vaibhav on 3/11/16.
+ * Created by Vaibhav on 3/12/16.
  */
-public class SummaryFragment extends Fragment implements OnClickListener{
+public class ResultFragment extends Fragment implements View.OnClickListener{
+
     Button b[] = new Button[30];
-    int a[] = new int[30];
+    int c[] = new int[30];
 
-    final static String KEY_ATTEMPTED = "attempted";
+    final static String KEY_CORRECT = "correct";
 
-    public SummaryFragment(){
+    public ResultFragment(){
         //Empty Constructor
     }
 
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_buttons,container,false);
@@ -87,32 +89,30 @@ public class SummaryFragment extends Fragment implements OnClickListener{
         b[29] = (Button) view.findViewById(R.id.button30);
 
         colorButtons();
+
         return view;
     }
-
     void colorButtons(){
-        a=getArguments().getIntArray(KEY_ATTEMPTED);
+        c=getArguments().getIntArray(KEY_CORRECT);
         for (int i = 0; i < 30; i++) {
             b[i].setOnClickListener(this);
-            if (a[i] == 1) {
+            if (c[i] == 1) {
                 b[i].setBackgroundColor(Color.GREEN);
-            } else if (a[i] == -1) {
-                b[i].setBackgroundColor(Color.CYAN);
+            } else if (c[i] == -1) {
+                b[i].setBackgroundColor(Color.RED);
             } else {
                 b[i].setBackgroundColor(getResources().getColor(R.color.alternate));
             }
         }
     }
 
-
     @Override
     public void onClick(View v) {
 
-        for(int i=0;i<30;i++){
-            if(v == b[i]){
-                ((Summary)getActivity()).buttonClicked(i);
+        for (int i=0;i<b.length;i++){
+            if(v==b[i]){
+                ((Result)getActivity()).buttonClicked(i);
             }
         }
     }
 }
-
