@@ -103,17 +103,17 @@ public class Result extends AppCompatActivity {
     }
 
 
-    public void buttonClicked(int button){
-                Intent in = new Intent(this, Check_Question.class);
-                Bundle b = new Bundle();
+    public void buttonClicked(int button) {
+        Intent in = new Intent(this, Check_Question.class);
+        Bundle b = new Bundle();
 
-                b.putInt(KEY_NO, button + 1);
-                b.putIntArray(KEY_U, u);
-                b.putChar(KEY_TEST, ch);
-                if (ch == 'a')
-                    b.putString(KEY_PARA, s);
-                in.putExtras(b);
-                startActivity(in);
+        b.putInt(KEY_NO, button + 1);
+        b.putIntArray(KEY_U, u);
+        b.putChar(KEY_TEST, ch);
+        if (ch == 'a')
+            b.putString(KEY_PARA, s);
+        in.putExtras(b);
+        startActivity(in);
     }
 
     public void onBackPressed() {

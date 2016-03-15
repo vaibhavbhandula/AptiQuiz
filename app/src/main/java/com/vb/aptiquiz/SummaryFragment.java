@@ -12,19 +12,19 @@ import android.widget.Button;
 /**
  * Created by Vaibhav on 3/11/16.
  */
-public class SummaryFragment extends Fragment implements OnClickListener{
+public class SummaryFragment extends Fragment implements OnClickListener {
     Button b[] = new Button[30];
     int a[] = new int[30];
 
     final static String KEY_ATTEMPTED = "attempted";
 
-    public SummaryFragment(){
+    public SummaryFragment() {
         //Empty Constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_buttons,container,false);
+        View view = inflater.inflate(R.layout.fragment_buttons, container, false);
 
         b[0] = (Button) view.findViewById(R.id.button1);
 
@@ -90,8 +90,8 @@ public class SummaryFragment extends Fragment implements OnClickListener{
         return view;
     }
 
-    void colorButtons(){
-        a=getArguments().getIntArray(KEY_ATTEMPTED);
+    void colorButtons() {
+        a = getArguments().getIntArray(KEY_ATTEMPTED);
         for (int i = 0; i < 30; i++) {
             b[i].setOnClickListener(this);
             if (a[i] == 1) {
@@ -108,9 +108,9 @@ public class SummaryFragment extends Fragment implements OnClickListener{
     @Override
     public void onClick(View v) {
 
-        for(int i=0;i<30;i++){
-            if(v == b[i]){
-                ((Summary)getActivity()).buttonClicked(i);
+        for (int i = 0; i < 30; i++) {
+            if (v == b[i]) {
+                ((Summary) getActivity()).buttonClicked(i);
             }
         }
     }

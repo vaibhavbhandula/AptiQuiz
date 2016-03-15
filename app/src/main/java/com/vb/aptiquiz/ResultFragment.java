@@ -12,21 +12,21 @@ import android.widget.Button;
 /**
  * Created by Vaibhav on 3/12/16.
  */
-public class ResultFragment extends Fragment implements View.OnClickListener{
+public class ResultFragment extends Fragment implements View.OnClickListener {
 
     Button b[] = new Button[30];
     int c[] = new int[30];
 
     final static String KEY_CORRECT = "correct";
 
-    public ResultFragment(){
+    public ResultFragment() {
         //Empty Constructor
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_buttons,container,false);
+        View view = inflater.inflate(R.layout.fragment_buttons, container, false);
 
         b[0] = (Button) view.findViewById(R.id.button1);
 
@@ -92,8 +92,9 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
 
         return view;
     }
-    void colorButtons(){
-        c=getArguments().getIntArray(KEY_CORRECT);
+
+    void colorButtons() {
+        c = getArguments().getIntArray(KEY_CORRECT);
         for (int i = 0; i < 30; i++) {
             b[i].setOnClickListener(this);
             if (c[i] == 1) {
@@ -109,9 +110,9 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        for (int i=0;i<b.length;i++){
-            if(v==b[i]){
-                ((Result)getActivity()).buttonClicked(i);
+        for (int i = 0; i < b.length; i++) {
+            if (v == b[i]) {
+                ((Result) getActivity()).buttonClicked(i);
             }
         }
     }
