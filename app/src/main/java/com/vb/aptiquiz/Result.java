@@ -10,13 +10,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class Result extends AppCompatActivity implements OnClickListener {
-    Button b[] = new Button[30];
+public class Result extends AppCompatActivity {
     TextView tv, tv1, tv2, tv3, score;
 
     int res = 0, left = 0, u[] = new int[30], a[] = new int[30], c[] = new int[30];
@@ -66,96 +62,6 @@ public class Result extends AppCompatActivity implements OnClickListener {
         tv2 = (TextView) findViewById(R.id.textView4);
         tv3 = (TextView) findViewById(R.id.textView5);
         score = (TextView) findViewById(R.id.score);
-//        b[0] = (Button) findViewById(R.id.button1);
-//        b[0].setOnClickListener(this);
-//
-//        b[1] = (Button) findViewById(R.id.button2);
-//        b[1].setOnClickListener(this);
-//
-//        b[2] = (Button) findViewById(R.id.button3);
-//        b[2].setOnClickListener(this);
-//
-//        b[3] = (Button) findViewById(R.id.button4);
-//        b[3].setOnClickListener(this);
-//
-//        b[4] = (Button) findViewById(R.id.button5);
-//        b[4].setOnClickListener(this);
-//
-//        b[5] = (Button) findViewById(R.id.button6);
-//        b[5].setOnClickListener(this);
-//
-//        b[6] = (Button) findViewById(R.id.button7);
-//        b[6].setOnClickListener(this);
-//
-//        b[7] = (Button) findViewById(R.id.button8);
-//        b[7].setOnClickListener(this);
-//
-//        b[8] = (Button) findViewById(R.id.button9);
-//        b[8].setOnClickListener(this);
-//
-//        b[9] = (Button) findViewById(R.id.button10);
-//        b[9].setOnClickListener(this);
-//
-//        b[10] = (Button) findViewById(R.id.button11);
-//        b[10].setOnClickListener(this);
-//
-//        b[11] = (Button) findViewById(R.id.button12);
-//        b[11].setOnClickListener(this);
-//
-//        b[12] = (Button) findViewById(R.id.button13);
-//        b[12].setOnClickListener(this);
-//
-//        b[13] = (Button) findViewById(R.id.button14);
-//        b[13].setOnClickListener(this);
-//
-//        b[14] = (Button) findViewById(R.id.button15);
-//        b[14].setOnClickListener(this);
-//
-//        b[15] = (Button) findViewById(R.id.button16);
-//        b[15].setOnClickListener(this);
-//
-//        b[16] = (Button) findViewById(R.id.button17);
-//        b[16].setOnClickListener(this);
-//
-//        b[17] = (Button) findViewById(R.id.button18);
-//        b[17].setOnClickListener(this);
-//
-//        b[18] = (Button) findViewById(R.id.button19);
-//        b[18].setOnClickListener(this);
-//
-//        b[19] = (Button) findViewById(R.id.button20);
-//        b[19].setOnClickListener(this);
-//
-//        b[20] = (Button) findViewById(R.id.button21);
-//        b[20].setOnClickListener(this);
-//
-//        b[21] = (Button) findViewById(R.id.button22);
-//        b[21].setOnClickListener(this);
-//
-//        b[22] = (Button) findViewById(R.id.button23);
-//        b[22].setOnClickListener(this);
-//
-//        b[23] = (Button) findViewById(R.id.button24);
-//        b[23].setOnClickListener(this);
-//
-//        b[24] = (Button) findViewById(R.id.button25);
-//        b[24].setOnClickListener(this);
-//
-//        b[25] = (Button) findViewById(R.id.button26);
-//        b[25].setOnClickListener(this);
-//
-//        b[26] = (Button) findViewById(R.id.button27);
-//        b[26].setOnClickListener(this);
-//
-//        b[27] = (Button) findViewById(R.id.button28);
-//        b[27].setOnClickListener(this);
-//
-//        b[28] = (Button) findViewById(R.id.button29);
-//        b[28].setOnClickListener(this);
-//
-//        b[29] = (Button) findViewById(R.id.button30);
-//        b[29].setOnClickListener(this);
-
 
         tv1.setTextColor(Color.BLACK);
         tv2.setTextColor(Color.BLACK);
@@ -166,13 +72,9 @@ public class Result extends AppCompatActivity implements OnClickListener {
 
         for (int i = 0; i < 30; i++) {
             if (c[i] == 1) {
-                //b[i].setBackgroundColor(Color.GREEN);
                 res++;
             } else if (c[i] == -1) {
-                //b[i].setBackgroundColor(Color.RED);
                 left++;
-            } else {
-                //b[i].setBackgroundColor(getResources().getColor(R.color.alternate));
             }
         }
 
@@ -212,8 +114,6 @@ public class Result extends AppCompatActivity implements OnClickListener {
                     b.putString(KEY_PARA, s);
                 in.putExtras(b);
                 startActivity(in);
-
-
     }
 
     public void onBackPressed() {
@@ -245,22 +145,4 @@ public class Result extends AppCompatActivity implements OnClickListener {
         ad.show();
     }
 
-    @Override
-    public void onClick(View v) {
-
-//        for (int i = 0; i < 30; i++) {
-//            if (v == b[i]) {
-//                Intent in = new Intent(this, Check_Question.class);
-//                Bundle b = new Bundle();
-//
-//                b.putInt(KEY_NO, i + 1);
-//                b.putIntArray(KEY_U, u);
-//                b.putChar(KEY_TEST, ch);
-//                if (ch == 'a')
-//                    b.putString(KEY_PARA, s);
-//                in.putExtras(b);
-//                startActivity(in);
-//            }
-//        }
-    }
 }
