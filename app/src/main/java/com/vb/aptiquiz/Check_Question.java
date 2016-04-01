@@ -148,7 +148,6 @@ public class Check_Question extends AppCompatActivity implements View.OnClickLis
         ad.setIcon(R.drawable.ic_warning_black_24dp);
         ad.setTitle(getString(R.string.confirm_ad));
         ad.setMessage(getString(R.string.alert_quit));
-        ad.setIcon(android.R.drawable.stat_notify_error);
         ad.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
